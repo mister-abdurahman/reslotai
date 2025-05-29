@@ -119,7 +119,7 @@ const Footer = () => {
                   className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 font-semibold px-6"
                   aria-label="Get started"
                 >
-                  Get Started
+                  Get Started.
                 </Button>
               </form>
             </div>
