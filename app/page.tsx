@@ -6,11 +6,10 @@ import PainPointSection from "@/components/PainPointSection";
 import PricingSection from "@/components/PricingSection";
 import ResultsSection from "@/components/ResultsSection";
 import RevenueCalculator from "@/components/RevenueCalculator";
-
 export default function Home() {
   return (
     <div className="min-h-screen font-inter">
-      <Header />
+      <Header path={""} />
       <main>
         <HeroSection />
         <HowItWorksSection />

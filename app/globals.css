@@ -3,4 +3,6 @@
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-mono: "Inter", sans-serif;
+  --color-grad1: "bg-gradient-to-br from-blue-900 to-purple-500";
+  --color-grad2: "bg-gradient-to-br from-blue-900 to-purple-500";
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { NicheProvider } from "@/store/AppContext";
 
 const InterSans = Inter({
   variable: "--font-sans",
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${InterSans.variable} antialiased`}>{children}</body>
+      <body className={`${InterSans.variable} antialiased`}>
+        <NicheProvider>{children}</NicheProvider>
+      </body>
     </html>
   );
 }

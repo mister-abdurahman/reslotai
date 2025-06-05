@@ -40,7 +40,7 @@ const HeroSection = () => {
         ></div>
       </div>
 
-      <div className="relative container mx-auto px-4 pt-24 pb-16">
+      <div className="relative container mx-auto px-4 pt-28 pb-16">
         <div className="text-center max-w-4xl mx-auto">
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-inter font-bold text-white mb-6 animate-fade-in">

@@ -5,12 +5,31 @@ const nextConfig: NextConfig = {
   // output: "export",
   images: {
     // unoptimized: true,
-    domains: [
-      "res.cloudinary.com",
-      "pbs.twimg.com",
-      "avatars.githubusercontent.com",
-      "https://images.unsplash.com",
-      "images.unsplash.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "pbs.twimg.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
