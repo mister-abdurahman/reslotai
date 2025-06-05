@@ -67,12 +67,6 @@ import PetPricing from "../niches/pet/PetPricing";
 import PetPDFDownload from "../niches/pet/PetPDFDownload";
 import PetFinalCTA from "../niches/pet/PetFinalCTA";
 
-interface NicheParams {
-  params: {
-    niche: string;
-  };
-}
-
 // const content: Record<string, { title: string; subtitle: string }> = {
 //   fitness: {
 //     title: "Boost Your Fitness Business",
@@ -88,7 +82,7 @@ interface NicheParams {
 //   },
 // };
 
-export default function NicheLanding({ params }: NicheParams) {
+export default function NicheLanding({ params }: any) {
   const { niche } = params;
 
   //   const data = content[niche] || content["default"];

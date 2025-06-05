@@ -6,7 +6,7 @@ import Link from "next/link";
 import nicheContents from "@/store/NichesContents";
 import Modal from "./Modal";
 
-const Header = ({ path }: { path: string }) => {
+const Header = ({ path = "" }: { path?: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 

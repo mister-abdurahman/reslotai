@@ -1,13 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
-interface NicheParams {
-  params: {
-    niche: string;
-  };
-}
-
-export default function NicheLanding({ params }: NicheParams) {
+export default function NicheLanding({ params }: any) {
   const { niche } = params;
 
   return (
