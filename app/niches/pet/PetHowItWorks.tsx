@@ -4,7 +4,7 @@ import { Mail, MessageSquare, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const PetHowItWorks = () => {
-  const [activeExample, setActiveExample] = useState(null);
+  const [activeExample, setActiveExample] = useState<null | number>(null);
 
   const steps = [
     {
@@ -115,7 +115,7 @@ const PetHowItWorks = () => {
 
               {steps[activeExample].example.type === 'sms' && (
                 <div className="space-y-4">
-                  {steps[activeExample].example.conversation.map((msg, idx) => (
+                  {steps[activeExample].example.conversation?.map((msg, idx) => (
                     <div
                       key={idx}
                       className={`flex ${msg.sender === 'clinic' ? 'justify-end' : 'justify-start'}`}
@@ -136,7 +136,7 @@ const PetHowItWorks = () => {
 
               {steps[activeExample].example.type === 'insights' && (
                 <div className="space-y-4">
-                  {steps[activeExample].example.data.map((item, idx) => (
+                  {steps[activeExample].example.data?.map((item, idx) => (
                     <div key={idx} className="flex justify-between p-4 bg-gray-50 rounded-lg">
                       <span className="font-medium text-gray-700">{item.metric}:</span>
                       <span className="font-bold text-blue-600">{item.value}</span>

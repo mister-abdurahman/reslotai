@@ -4,7 +4,7 @@ import { Mail, MessageSquare, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const LegalHowItWorks = () => {
-  const [activeExample, setActiveExample] = useState(null);
+  const [activeExample, setActiveExample] = useState<null | number>(null);
 
   const steps = [
     {
@@ -162,7 +162,7 @@ const LegalHowItWorks = () => {
 
               {steps[activeExample].example.type === "sms" && (
                 <div className="space-y-4">
-                  {steps[activeExample].example.conversation.map((msg, idx) => (
+                  {steps[activeExample].example.conversation?.map((msg, idx) => (
                     <div
                       key={idx}
                       className={`flex ${
@@ -185,7 +185,7 @@ const LegalHowItWorks = () => {
 
               {steps[activeExample].example.type === "insights" && (
                 <div className="space-y-4">
-                  {steps[activeExample].example.data.map((item, idx) => (
+                  {steps[activeExample].example.data?.map((item, idx) => (
                     <div
                       key={idx}
                       className="flex justify-between p-4 bg-gray-50 rounded-lg"

@@ -17,24 +17,24 @@ const FitnessHowItWorks = () => {
           <div className="border-b pb-3 mb-4">
             <div className="text-sm text-gray-500">From: FitZone Elite &lt;training@fitzone.com&gt;</div>
             <div className="text-sm text-gray-500">To: alex.johnson@email.com</div>
-            <div className="font-semibold text-gray-800">Don't Let Your Fitness Goals Slip Away</div>
+            <div className="font-semibold text-gray-800">Don`&apos;`t Let Your Fitness Goals Slip Away</div>
           </div>
           <div className="space-y-3 text-sm text-gray-700">
             <p>Hi Alex,</p>
             <p>We noticed you had to cancel your personal training session yesterday. We completely understand life gets busy!</p>
-            <p><strong>Here's why consistency is crucial for your fitness journey:</strong></p>
+            <p><strong>Here`&apos;`s why consistency is crucial for your fitness journey:</strong></p>
             <ul className="list-disc ml-5 space-y-1">
               <li>Missing sessions breaks momentum and slows progress</li>
               <li>Regular training builds habits that last a lifetime</li>
               <li>Your trainer has customized your program for maximum results</li>
             </ul>
-            <p>To help you get back on track, we're offering <span className="font-semibold text-green-600">50% off</span> your next session when you book within the next 7 days.</p>
+            <p>To help you get back on track, we`&apos;`re offering <span className="font-semibold text-green-600">50% off</span> your next session when you book within the next 7 days.</p>
             <div className="bg-blue-50 border border-blue-200 rounded p-3 text-center my-4">
               <Button className="bg-blue-600 text-white px-6 py-2 text-sm">
                 Book Now - Save 50%
               </Button>
             </div>
-            <p className="text-xs text-gray-500">Your goals are within reach. Let's smash them together!</p>
+            <p className="text-xs text-gray-500">Your goals are within reach. Let`&apos;`s smash them together!</p>
             <p className="text-xs text-gray-500">- Sarah, Personal Trainer</p>
           </div>
         </div>
@@ -59,12 +59,12 @@ const FitnessHowItWorks = () => {
             </div>
             <div className="flex">
               <div className="bg-gray-200 rounded-lg p-2 max-w-xs text-sm">
-                Did you know consistency is key to building muscle? Missing sessions can set back your progress by 2-3 weeks. Let's keep you on track!
+                Did you know consistency is key to building muscle? Missing sessions can set back your progress by 2-3 weeks. Let`&apos;`s keep you on track!
               </div>
             </div>
             <div className="flex justify-end">
               <div className="bg-blue-500 text-white rounded-lg p-2 max-w-xs text-sm">
-                I didn't realize! When can I reschedule?
+                I didn`&apos;`t realize! When can I reschedule?
               </div>
             </div>
             <div className="flex">
@@ -79,7 +79,7 @@ const FitnessHowItWorks = () => {
             </div>
             <div className="flex">
               <div className="bg-gray-200 rounded-lg p-2 max-w-xs text-sm">
-                Awesome! ✅ You're booked for tomorrow at 7PM. Let's crush those goals together!
+                Awesome! ✅ You`&apos;`re booked for tomorrow at 7PM. Let`&apos;`s crush those goals together!
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ const FitnessHowItWorks = () => {
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
               <h5 className="font-semibold text-red-800 mb-2">⚠️ High Cancellation Alert</h5>
               <p className="text-sm text-red-700">Morning sessions have 28% cancellation rate (↑8% from last month)</p>
-              <p className="text-xs text-red-600 mt-1">Main reason: "Too early" - Consider 7AM start times</p>
+              <p className="text-xs text-red-600 mt-1">Main reason: `&apos;`Too early`&apos;` - Consider 7AM start times</p>
             </div>
             
             <div className="bg-green-50 border border-green-200 rounded-lg p-4">
@@ -118,7 +118,7 @@ const FitnessHowItWorks = () => {
 
             <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
               <h5 className="font-semibold text-purple-800 mb-2">💡 Recommendation</h5>
-              <p className="text-sm text-purple-700">Add "buddy system" messaging to group class follow-ups</p>
+              <p className="text-sm text-purple-700">Add `&apos;`buddy system`&apos;` messaging to group class follow-ups</p>
               <p className="text-xs text-purple-600 mt-1">Similar gyms saw 45% increase in rebookings</p>
             </div>
           </div>

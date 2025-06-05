@@ -42,7 +42,8 @@ const HomeServicesPDFDownload = () => {
               </h3>
               <div className="bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl p-6 mb-6">
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                  "How to Reduce Cancellations for Home Service Businesses"
+                  `&apos;`How to Reduce Cancellations for Home Service
+                  Businesses`&apos;`
                 </h4>
                 <p className="text-gray-600">
                   A comprehensive guide with actionable strategies used by

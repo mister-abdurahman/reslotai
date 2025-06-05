@@ -1,7 +1,13 @@
 import { CircleX } from "lucide-react";
+import { ReactNode } from "react";
 
 // components/Modal.js
-export default function Modal({ isOpen, onClose, children }) {
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+};
+export default function Modal({ isOpen, onClose, children }: Props) {
   if (!isOpen) return null;
 
   return (

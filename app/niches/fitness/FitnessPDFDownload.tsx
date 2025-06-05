@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
-import { Download } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import { Download } from "lucide-react";
 
 const FitnessPDFDownload = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const { toast } = useToast();
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -16,7 +16,7 @@ const FitnessPDFDownload = () => {
         title: "Success!",
         description: "Your free guide will be sent to your email shortly.",
       });
-      setEmail('');
+      setEmail("");
     }
   };
 
@@ -41,10 +41,12 @@ const FitnessPDFDownload = () => {
               </h3>
               <div className="bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl p-6 mb-6">
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                  "How to Reduce Cancellations for Gyms, Studios & Personal Trainers"
+                  `&apos;`How to Reduce Cancellations for Gyms, Studios &
+                  Personal Trainers`&apos;`
                 </h4>
                 <p className="text-gray-600">
-                  A comprehensive guide with actionable strategies used by successful fitness businesses
+                  A comprehensive guide with actionable strategies used by
+                  successful fitness businesses
                 </p>
               </div>
             </div>
@@ -58,7 +60,7 @@ const FitnessPDFDownload = () => {
                 className="w-full text-lg p-4"
                 required
               />
-              <Button 
+              <Button
                 type="submit"
                 className="w-full bg-gradient-cta text-white hover:opacity-90 font-semibold text-lg p-4"
               >
