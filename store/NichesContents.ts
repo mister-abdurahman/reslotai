@@ -38,7 +38,7 @@ const nicheContents: NicheContent[] = [
     path: "pet",
   },
   {
-    niche: "Legal consultants",
+    niche: "Legal",
     path: "legal",
   },
   {

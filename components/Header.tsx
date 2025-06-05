@@ -14,7 +14,7 @@ const Header = ({ path }: { path: string }) => {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
       <div className="container mx-auto px-4 h-26 flex items-center justify-between">
         <div className="hidden p-4 md:flex flex-col gap-3 w-full">
-          <div className="flex items-center justify-between border-b border-gray-200">
+          <div className="hidden md:flex items-center justify-between border-b border-gray-200">
             <Link
               href="/"
               className="font-ibm font-bold text-2xl text-gray-900"
@@ -98,56 +98,91 @@ const Header = ({ path }: { path: string }) => {
               </div>
             </Modal>
           </div>
-          {/*<nav className="hidden md:flex items-center space-x-8 pb-1 text-xs justify-center">
-             {niches.map((el, i) => (
-              <Link href={`${el.toLowerCase()}`} key={i}>
-                <button
-                  key={i}
-                  className="text-purple-600 border-2 cursor-pointer border-purple-600 px-3 py-1 rounded-full"
-                >
-                  {el}
-                </button>
-              </Link>
-            ))} 
-          </nav> */}
         </div>
         {/* Logo */}
 
         {/* Desktop Navigation */}
 
         {/* Mobile Menu Button */}
-        <button
+        <div className="md:hidden p-4 flex flex-col gap-3 w-full">
+          <div className="flex items-center justify-between border-b border-gray-200">
+            <Link
+              href="/"
+              className="font-ibm font-bold text-2xl text-gray-900"
+            >
+              ReslotAI
+            </Link>
+
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+          <div className="justify-center flex items-center gap-3">
+            <p className="text-sm font-semibold  text-center tracking-wider">
+              Select Your Industry
+            </p>
+            <CircleChevronDown
+              width={17}
+              height={17}
+              onClick={() => setOpenModal(true)}
+              className="cursor-pointer hover:text-purple-600 transition-colors"
+            />
+            <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+              <div className="grid grid-cols-2 grid-rows-4 gap-4">
+                {nicheContents.map((el, i) => (
+                  <Link href={`/${el.path.toLowerCase()}`} key={i}>
+                    <button
+                      key={i}
+                      className="text-purple-600 border-2 cursor-pointer border-purple-600 px-3 py-1 rounded-full"
+                    >
+                      {el.niche}
+                    </button>
+                  </Link>
+                ))}
+              </div>
+            </Modal>
+          </div>
+        </div>
+        {/* <button
           className="md:hidden p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle mobile menu"
           aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </button> */}
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="absolute top-16 left-0 w-full bg-white border-b border-gray-200 md:hidden">
             <nav className="flex flex-col p-4 space-y-4">
-              <Link href={"/features"} onClick={() => setIsMenuOpen(false)}>
+              <Link
+                href={`/${path || ""}/features`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Features
               </Link>
               <Link
-                href="/how-it-works"
+                href={`/${path || ""}/how-it-works`}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 onClick={() => setIsMenuOpen(false)}
               >
                 How It Works
               </Link>
               <Link
-                href="/about-us"
+                href={`/${path || ""}/about-us`}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About Us
               </Link>
               <Link
-                href={"/pricing"}
+                href={`/${path || ""}/pricing`}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 aria-label="Navigate to Pricing section"
@@ -155,7 +190,7 @@ const Header = ({ path }: { path: string }) => {
                 Pricing
               </Link>
               <Link
-                href={"/results"}
+                href={`/${path || ""}/results`}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 aria-label="Navigate to Results section"
