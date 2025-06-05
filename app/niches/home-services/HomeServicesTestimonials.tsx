@@ -1,5 +1,6 @@
 import React from "react";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const HomeServicesTestimonials = () => {
   const testimonials = [
@@ -62,9 +63,11 @@ const HomeServicesTestimonials = () => {
               className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 text-center hover:bg-white/15 transition-colors"
             >
               <div className="flex justify-center mb-4">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.author}
+                  width={200}
+                  height={200}
                   className="w-16 h-16 rounded-full object-cover border-2 border-white/20"
                 />
               </div>
@@ -79,7 +82,7 @@ const HomeServicesTestimonials = () => {
               </div>
 
               <blockquote className="text-lg text-white mb-6 font-inter">
-                "{testimonial.text}"
+                `&apos;`{testimonial.text}`&apos;`
               </blockquote>
 
               <div className="text-gray-200">
