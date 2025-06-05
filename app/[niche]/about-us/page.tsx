@@ -7,15 +7,15 @@ interface NicheParams {
   };
 }
 
-export default async function AboutUs({ params }: NicheParams) {
-  const { niche } = await params;
+export default function AboutUs({ params }: NicheParams) {
+  const { niche } = params;
 
   return (
     <div className="min-h-screen font-inter">
       <Header path={niche} />
       <main className="mt-30">
         <p className="text-center font-semibold text-blue-900 py-6">
-          About Us content for niche:{niche}
+          About Us content for niche: {niche}
         </p>
       </main>
       <Footer />

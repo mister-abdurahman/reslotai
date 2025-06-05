@@ -7,8 +7,8 @@ interface NicheParams {
   };
 }
 
-export default async function Pricing({ params }: NicheParams) {
-  const { niche } = await params;
+export default function Pricing({ params }: NicheParams) {
+  const { niche } = params;
 
   return (
     <div className="min-h-screen font-inter">
