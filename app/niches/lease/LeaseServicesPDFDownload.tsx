@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Download } from "lucide-react";
 
-const HomeServicesPDFDownload = () => {
+const LeaseServicesPDFDownload = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
 
@@ -27,11 +27,11 @@ const HomeServicesPDFDownload = () => {
           <div className="mb-8">
             <Download className="w-16 h-16 text-purple-600 mx-auto mb-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
-              Want to Reduce Customer No-Shows Like a Pro?
+              Want to Fill Vacant Units Faster Like a Pro?
             </h2>
             <p className="text-xl text-gray-600 mb-8 font-inter">
-              Download our free PDF guide with proven strategies for home
-              service businesses
+              Download our free PDF guide with proven strategies for property
+              managers and real estate investors
             </p>
           </div>
 
@@ -42,12 +42,11 @@ const HomeServicesPDFDownload = () => {
               </h3>
               <div className="bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl p-6 mb-6">
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                  `&apos;`How to Reduce Cancellations for Home Service
-                  Businesses`&apos;`
+                  &apos;How to Minimize Vacancy Rates for Lease Businesses&apos;
                 </h4>
                 <p className="text-gray-600">
                   A comprehensive guide with actionable strategies used by
-                  successful contractors
+                  successful property managers and landlords
                 </p>
               </div>
             </div>
@@ -70,7 +69,7 @@ const HomeServicesPDFDownload = () => {
             </form>
 
             <p className="text-sm text-gray-500 mt-4">
-              No spam. Just proven tips trusted by 500+ home service
+              No spam. Just proven tips trusted by 500+ property management
               professionals.
             </p>
           </div>
@@ -80,4 +79,4 @@ const HomeServicesPDFDownload = () => {
   );
 };
 
-export default HomeServicesPDFDownload;
+export default LeaseServicesPDFDownload;

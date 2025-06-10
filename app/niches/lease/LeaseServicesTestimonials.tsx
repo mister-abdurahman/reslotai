@@ -2,43 +2,43 @@ import React from "react";
 import { Star } from "lucide-react";
 import Image from "next/image";
 
-const HomeServicesTestimonials = () => {
+const LeaseServicesTestimonials = () => {
   const testimonials = [
     {
       rating: 5,
-      text: "We recovered $11,500 in one month alone!",
-      author: "Mike Thompson",
-      title: "Owner",
-      business: "Elite Plumbing Services",
+      text: "We reduced our vacancy rate by 15% in just two months!",
+      author: "Maria Rodriguez",
+      title: "Property Manager",
+      business: "CityView Apartments",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
     },
     {
       rating: 5,
-      text: "ReslotAI cut our no-show rate by 52% — customers love the quick response.",
-      author: "Sarah Martinez",
-      title: "Business Manager",
-      business: "Green Landscaping Co",
+      text: "ReslotAI helped us fill vacant units 30% faster — prospective tenants love the quick response.",
+      author: "David Chen",
+      title: "Leasing Director",
+      business: "Summit Realty Group",
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b332c913?w=300&h=300&fit=crop&crop=face",
     },
     {
       rating: 5,
-      text: "Setup was incredibly easy. It's automatically rebooking cancelled jobs.",
-      author: "Dave Wilson",
-      title: "Electrical Contractor",
-      business: "Pro Electric Solutions",
+      text: "Implementation was seamless. It's automatically rebooking cancelled tours and attracting new leads.",
+      author: "Jessica Lee",
+      title: "Leasing Agent",
+      business: "Elite Properties",
       image:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500">
+    <section className="pb-20 pt-30 bg-gradient-to-br from-blue-900 to-purple-500">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-inter">
-            What Home Service Professionals Say
+            What Lease Professionals Say
           </h2>
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="flex">
@@ -52,7 +52,7 @@ const HomeServicesTestimonials = () => {
             <span className="text-xl font-semibold text-white ml-2">4.9/5</span>
           </div>
           <p className="text-lg text-gray-200">
-            Trusted by 500+ home service businesses
+            Trusted by 500+ property management businesses
           </p>
         </div>
 
@@ -82,7 +82,7 @@ const HomeServicesTestimonials = () => {
               </div>
 
               <blockquote className="text-lg text-white mb-6 font-inter">
-                `&apos;`{testimonial.text}`&apos;`
+                &apos;{testimonial.text}&apos;
               </blockquote>
 
               <div className="text-gray-200">
@@ -121,4 +121,4 @@ const HomeServicesTestimonials = () => {
   );
 };
 
-export default HomeServicesTestimonials;
+export default LeaseServicesTestimonials;

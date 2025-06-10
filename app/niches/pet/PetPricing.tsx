@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 
 const PetPricing = () => {
   const plans = [
@@ -15,9 +14,9 @@ const PetPricing = () => {
         "SMS & Email recovery",
         "Basic analytics",
         "Customer support",
-        "Easy integration"
+        "Easy integration",
       ],
-      popular: false
+      popular: false,
     },
     {
       name: "Professional",
@@ -30,9 +29,9 @@ const PetPricing = () => {
         "Detailed analytics & reporting",
         "Priority customer support",
         "Multi-location support",
-        "Custom branding"
+        "Custom branding",
       ],
-      popular: true
+      popular: true,
     },
     {
       name: "Enterprise",
@@ -46,21 +45,22 @@ const PetPricing = () => {
         "Dedicated account manager",
         "Multi-location management",
         "Custom integrations",
-        "White-label options"
+        "White-label options",
       ],
-      popular: false
-    }
+      popular: false,
+    },
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-gray-50">
+    <section id="pricing" className="pb-20 pt-30 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
             Simple Pricing for Pet Care Professionals
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-inter">
-            Choose the plan that fits your pet care business needs. All plans include a 14-day free trial.
+            Choose the plan that fits your pet care business needs. All plans
+            include a 14-day free trial.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ const PetPricing = () => {
             <div
               key={index}
               className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-8 ${
-                plan.popular ? 'ring-2 ring-purple-500' : ''
+                plan.popular ? "ring-2 ring-purple-500" : ""
               }`}
             >
               {plan.popular && (
@@ -81,9 +81,13 @@ const PetPricing = () => {
               )}
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {plan.name}
+                </h3>
                 <div className="mb-4">
-                  <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
+                  <span className="text-5xl font-bold text-gray-900">
+                    {plan.price}
+                  </span>
                   <span className="text-gray-600 text-lg">{plan.period}</span>
                 </div>
                 <p className="text-gray-600">{plan.description}</p>
@@ -101,8 +105,8 @@ const PetPricing = () => {
               <Button
                 className={`w-full ${
                   plan.popular
-                    ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                    : 'bg-gray-900 hover:bg-gray-800 text-white'
+                    ? "bg-purple-600 hover:bg-purple-700 text-white"
+                    : "bg-gray-900 hover:bg-gray-800 text-white"
                 }`}
               >
                 Start Free Trial
@@ -116,7 +120,10 @@ const PetPricing = () => {
             All plans include a 14-day free trial. No credit card required.
           </p>
           <p className="text-sm text-gray-500">
-            Questions about pricing? <a href="#" className="text-purple-600 hover:underline">Contact our team</a>
+            Questions about pricing?{" "}
+            <a href="#" className="text-purple-600 hover:underline">
+              Contact our team
+            </a>
           </p>
         </div>
       </div>

@@ -1,90 +1,98 @@
 "use client";
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 
-const HomeServicesPricing = () => {
+const LeaseServicesPricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
     {
-      name: 'Solo Contractor',
-      monthlyPrice: 89,
-      annualPrice: 890,
-      description: 'Perfect for individual contractors',
+      name: "Solo Investor",
+      monthlyPrice: 99,
+      annualPrice: 990,
+      description: "Perfect for individual property investors",
       features: [
-        '1 contractor',
-        '1,000 customers',
-        'Automated email recovery',
-        'SMS notifications',
-        'Basic analytics',
-        'Email support'
+        "Up to 5 properties",
+        "100 tenants/leads",
+        "Automated inquiry response",
+        "Vacancy alerts via SMS",
+        "Basic property analytics",
+        "Email support",
       ],
-      highlighted: false
+      highlighted: false,
     },
     {
-      name: 'Small Business',
-      monthlyPrice: 179,
-      annualPrice: 1790,
-      description: 'Ideal for small home service companies',
+      name: "Property Manager",
+      monthlyPrice: 199,
+      annualPrice: 1990,
+      description: "Ideal for small to medium property management companies",
       features: [
-        'Up to 5 contractors',
-        '5,000 customers',
-        'Advanced email & SMS recovery',
-        'Customer surveys',
-        'Detailed analytics',
-        'Priority support',
-        'Custom templates'
+        "Up to 20 properties",
+        "500 tenants/leads",
+        "Advanced automated communication",
+        "Tenant screening integrations",
+        "Detailed vacancy analytics",
+        "Priority support",
+        "Customizable templates",
       ],
-      highlighted: true
+      highlighted: true,
     },
     {
-      name: 'Enterprise',
-      monthlyPrice: 299,
-      annualPrice: 2990,
-      description: 'For large home service operations',
+      name: "Enterprise Management",
+      monthlyPrice: 349,
+      annualPrice: 3490,
+      description: "For large-scale property management operations",
       features: [
-        'Unlimited contractors',
-        'Unlimited customers',
-        'Multi-location support',
-        'Advanced integrations',
-        'Custom reporting',
-        'Dedicated account manager',
-        'Phone support'
+        "Unlimited properties",
+        "Unlimited tenants/leads",
+        "Multi-portfolio support",
+        "Advanced CRM integrations",
+        "Customizable reporting",
+        "Dedicated account manager",
+        "Phone support",
       ],
-      highlighted: false
-    }
+      highlighted: false,
+    },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="pb-20 pt-30 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Often costs less than a single recovered service call
+            Often costs less than filling a single vacant unit
           </p>
-          
+
           {/* Billing Toggle */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className={`font-semibold ${!isAnnual ? 'text-blue-600' : 'text-gray-500'}`}>
+            <span
+              className={`font-semibold ${
+                !isAnnual ? "text-blue-600" : "text-gray-500"
+              }`}
+            >
               Monthly
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               className={`relative w-16 h-8 rounded-full transition-colors ${
-                isAnnual ? 'bg-blue-600' : 'bg-gray-300'
+                isAnnual ? "bg-blue-600" : "bg-gray-300"
               }`}
             >
               <div
                 className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-transform ${
-                  isAnnual ? 'translate-x-8' : 'translate-x-1'
+                  isAnnual ? "translate-x-8" : "translate-x-1"
                 }`}
               />
             </button>
-            <span className={`font-semibold ${isAnnual ? 'text-blue-600' : 'text-gray-500'}`}>
+            <span
+              className={`font-semibold ${
+                isAnnual ? "text-blue-600" : "text-gray-500"
+              }`}
+            >
               Annual
               <span className="text-green-600 text-sm ml-1">(Save 17%)</span>
             </span>
@@ -96,7 +104,9 @@ const HomeServicesPricing = () => {
             <div
               key={index}
               className={`relative bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:scale-105 ${
-                plan.highlighted ? 'border-2 border-blue-500 transform scale-105' : 'border border-gray-200'
+                plan.highlighted
+                  ? "border-2 border-blue-500 transform scale-105"
+                  : "border border-gray-200"
               }`}
             >
               {plan.highlighted && (
@@ -104,14 +114,19 @@ const HomeServicesPricing = () => {
                   Most Popular
                 </div>
               )}
-              
-              <div className={`p-8 ${plan.highlighted ? 'pt-16' : ''}`}>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-inter">{plan.name}</h3>
+
+              <div className={`p-8 ${plan.highlighted ? "pt-16" : ""}`}>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-inter">
+                  {plan.name}
+                </h3>
                 <p className="text-gray-600 mb-6">{plan.description}</p>
-                
+
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-gray-900">
-                    ${isAnnual ? Math.round(plan.annualPrice / 12) : plan.monthlyPrice}
+                    $
+                    {isAnnual
+                      ? Math.round(plan.annualPrice / 12)
+                      : plan.monthlyPrice}
                   </span>
                   <span className="text-gray-600">/month</span>
                   {isAnnual && (
@@ -121,11 +136,11 @@ const HomeServicesPricing = () => {
                   )}
                 </div>
 
-                <Button 
+                <Button
                   className={`w-full mb-8 ${
-                    plan.highlighted 
-                      ? 'bg-blue-600 hover:bg-blue-700' 
-                      : 'bg-gray-900 hover:bg-gray-800'
+                    plan.highlighted
+                      ? "bg-blue-600 hover:bg-blue-700"
+                      : "bg-gray-900 hover:bg-gray-800"
                   } text-white font-semibold`}
                 >
                   Start Free Trial
@@ -149,7 +164,8 @@ const HomeServicesPricing = () => {
         <div className="text-center mt-12">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-3xl mx-auto">
             <p className="text-blue-900 font-inter">
-              <strong>30-day free trial.</strong> No setup fees. Cancel anytime. Money-back guarantee.
+              **30-day free trial.** No setup fees. Cancel anytime. Money-back
+              guarantee.
             </p>
           </div>
         </div>
@@ -158,4 +174,4 @@ const HomeServicesPricing = () => {
   );
 };
 
-export default HomeServicesPricing;
+export default LeaseServicesPricing;

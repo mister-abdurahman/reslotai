@@ -1,63 +1,63 @@
 "use client";
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 
 const DentalPricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
     {
-      name: 'Solo Practice',
+      name: "Solo Practice",
       monthlyPrice: 75,
       annualPrice: 750,
-      description: 'Perfect for single dentist practices',
+      description: "Perfect for single dentist practices",
       features: [
-        '1 provider',
-        '500 patients',
-        'Automated email recovery',
-        'SMS notifications',
-        'Basic analytics',
-        'Email support'
+        "1 provider",
+        "500 patients",
+        "Automated email recovery",
+        "SMS notifications",
+        "Basic analytics",
+        "Email support",
       ],
-      highlighted: false
+      highlighted: false,
     },
     {
-      name: 'Multi-Provider',
+      name: "Multi-Provider",
       monthlyPrice: 150,
       annualPrice: 1500,
-      description: 'Ideal for group practices and specialists',
+      description: "Ideal for group practices and specialists",
       features: [
-        'Up to 5 providers',
-        '2,500 patients',
-        'Advanced email & SMS recovery',
-        'Patient surveys',
-        'Detailed analytics',
-        'Priority support',
-        'Custom templates'
+        "Up to 5 providers",
+        "2,500 patients",
+        "Advanced email & SMS recovery",
+        "Patient surveys",
+        "Detailed analytics",
+        "Priority support",
+        "Custom templates",
       ],
-      highlighted: true
+      highlighted: true,
     },
     {
-      name: 'Enterprise',
+      name: "Enterprise",
       monthlyPrice: 250,
       annualPrice: 2500,
-      description: 'For dental chains and large practices',
+      description: "For dental chains and large practices",
       features: [
-        'Unlimited providers',
-        'Unlimited patients',
-        'Multi-location support',
-        'Advanced integrations',
-        'Custom reporting',
-        'Dedicated account manager',
-        'Phone support'
+        "Unlimited providers",
+        "Unlimited patients",
+        "Multi-location support",
+        "Advanced integrations",
+        "Custom reporting",
+        "Dedicated account manager",
+        "Phone support",
       ],
-      highlighted: false
-    }
+      highlighted: false,
+    },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="pb-20 pt-30 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
@@ -66,25 +66,33 @@ const DentalPricing = () => {
           <p className="text-xl text-gray-600 mb-8">
             Often costs less than a single recovered crown appointment
           </p>
-          
+
           {/* Billing Toggle */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className={`font-semibold ${!isAnnual ? 'text-blue-600' : 'text-gray-500'}`}>
+            <span
+              className={`font-semibold ${
+                !isAnnual ? "text-blue-600" : "text-gray-500"
+              }`}
+            >
               Monthly
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               className={`relative w-16 h-8 rounded-full transition-colors ${
-                isAnnual ? 'bg-blue-600' : 'bg-gray-300'
+                isAnnual ? "bg-blue-600" : "bg-gray-300"
               }`}
             >
               <div
                 className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-transform ${
-                  isAnnual ? 'translate-x-8' : 'translate-x-1'
+                  isAnnual ? "translate-x-8" : "translate-x-1"
                 }`}
               />
             </button>
-            <span className={`font-semibold ${isAnnual ? 'text-blue-600' : 'text-gray-500'}`}>
+            <span
+              className={`font-semibold ${
+                isAnnual ? "text-blue-600" : "text-gray-500"
+              }`}
+            >
               Annual
               <span className="text-green-600 text-sm ml-1">(Save 17%)</span>
             </span>
@@ -96,7 +104,9 @@ const DentalPricing = () => {
             <div
               key={index}
               className={`relative bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:scale-105 ${
-                plan.highlighted ? 'border-2 border-blue-500 transform scale-105' : 'border border-gray-200'
+                plan.highlighted
+                  ? "border-2 border-blue-500 transform scale-105"
+                  : "border border-gray-200"
               }`}
             >
               {plan.highlighted && (
@@ -104,14 +114,19 @@ const DentalPricing = () => {
                   Most Popular
                 </div>
               )}
-              
-              <div className={`p-8 ${plan.highlighted ? 'pt-16' : ''}`}>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-inter">{plan.name}</h3>
+
+              <div className={`p-8 ${plan.highlighted ? "pt-16" : ""}`}>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-inter">
+                  {plan.name}
+                </h3>
                 <p className="text-gray-600 mb-6">{plan.description}</p>
-                
+
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-gray-900">
-                    ${isAnnual ? Math.round(plan.annualPrice / 12) : plan.monthlyPrice}
+                    $
+                    {isAnnual
+                      ? Math.round(plan.annualPrice / 12)
+                      : plan.monthlyPrice}
                   </span>
                   <span className="text-gray-600">/month</span>
                   {isAnnual && (
@@ -121,11 +136,11 @@ const DentalPricing = () => {
                   )}
                 </div>
 
-                <Button 
+                <Button
                   className={`w-full mb-8 ${
-                    plan.highlighted 
-                      ? 'bg-blue-600 hover:bg-blue-700' 
-                      : 'bg-gray-900 hover:bg-gray-800'
+                    plan.highlighted
+                      ? "bg-blue-600 hover:bg-blue-700"
+                      : "bg-gray-900 hover:bg-gray-800"
                   } text-white font-semibold`}
                 >
                   Start Free Trial
@@ -149,7 +164,8 @@ const DentalPricing = () => {
         <div className="text-center mt-12">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-3xl mx-auto">
             <p className="text-blue-900 font-inter">
-              <strong>30-day free trial.</strong> No setup fees. Cancel anytime. Money-back guarantee.
+              <strong>30-day free trial.</strong> No setup fees. Cancel anytime.
+              Money-back guarantee.
             </p>
           </div>
         </div>

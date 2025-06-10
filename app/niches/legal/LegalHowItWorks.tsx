@@ -99,7 +99,7 @@ const LegalHowItWorks = () => {
   const closeExample = () => setActiveExample(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="pb-20 pt-30 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
@@ -162,24 +162,28 @@ const LegalHowItWorks = () => {
 
               {steps[activeExample].example.type === "sms" && (
                 <div className="space-y-4">
-                  {steps[activeExample].example.conversation?.map((msg, idx) => (
-                    <div
-                      key={idx}
-                      className={`flex ${
-                        msg.sender === "firm" ? "justify-end" : "justify-start"
-                      }`}
-                    >
+                  {steps[activeExample].example.conversation?.map(
+                    (msg, idx) => (
                       <div
-                        className={`max-w-xs p-3 rounded-lg ${
+                        key={idx}
+                        className={`flex ${
                           msg.sender === "firm"
-                            ? "bg-blue-600 text-white"
-                            : "bg-gray-200 text-gray-800"
+                            ? "justify-end"
+                            : "justify-start"
                         }`}
                       >
-                        {msg.message}
+                        <div
+                          className={`max-w-xs p-3 rounded-lg ${
+                            msg.sender === "firm"
+                              ? "bg-blue-600 text-white"
+                              : "bg-gray-200 text-gray-800"
+                          }`}
+                        >
+                          {msg.message}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               )}
 

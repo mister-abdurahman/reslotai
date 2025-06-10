@@ -2,17 +2,17 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Calendar, Calculator, Tag } from "lucide-react";
 
-const HomeServicesFinalCTA = () => {
+const LeaseServicesFinalCTA = () => {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-900 to-purple-500 text-white">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-5xl font-bold mb-6 font-ibm">
-            Stop Losing Revenue to Cancellations
+            Stop Losing Revenue to Vacancies
           </h2>
           <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join 500+ home service businesses already recovering thousands in
-            lost revenue every month
+            Join 500+ property management businesses already recovering
+            thousands in lost revenue every month
           </p>
 
           {/* Promotional Code Banner */}
@@ -22,7 +22,7 @@ const HomeServicesFinalCTA = () => {
               <span className="text-lg font-semibold">
                 Limited Time: Use code{" "}
                 <span className="bg-yellow-300 text-blue-900 px-2 py-1 rounded font-bold">
-                  HOME
+                  LEASE
                 </span>{" "}
                 for 10% off your first month!
               </span>
@@ -33,7 +33,7 @@ const HomeServicesFinalCTA = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-300" />
               <h3 className="text-xl font-semibold mb-2">Proven Results</h3>
-              <p className="text-blue-100">62% average recovery rate</p>
+              <p className="text-blue-100">15% average vacancy reduction</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <Calendar className="w-12 h-12 mx-auto mb-4 text-blue-300" />
@@ -64,8 +64,8 @@ const HomeServicesFinalCTA = () => {
           </div>
 
           <div className="text-blue-200 text-sm">
-            ✓ No setup fees ✓ No contracts required ✓ Works with all scheduling
-            systems ✓ 24/7 support
+            ✓ No setup fees ✓ No contracts required ✓ Works with all property
+            management systems ✓ 24/7 support
           </div>
         </div>
       </div>
@@ -73,4 +73,4 @@ const HomeServicesFinalCTA = () => {
   );
 };
 
-export default HomeServicesFinalCTA;
+export default LeaseServicesFinalCTA;

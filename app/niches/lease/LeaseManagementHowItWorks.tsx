@@ -3,97 +3,96 @@ import React, { useState } from "react";
 import { Mail, MessageSquare, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const HomeServicesHowItWorks = () => {
+const LeaseManagementHowItWorks = () => {
   const [activeExample, setActiveExample] = useState<null | number>(null);
 
   const steps = [
     {
       icon: <Mail className="w-12 h-12 text-blue-600" />,
-      title: "Smart Customer Follow-ups",
-      description: "Automated emails and SMS for cancelled appointments",
+      title: "Smart Tenant Follow-ups",
+      description: "Automated emails and SMS for cancelled showings",
       example: {
         type: "email",
-        subject: "Your Home Project Continues - Let's Reschedule Your Service",
+        subject: "Your Perfect Rental Awaits - Let's Reschedule Your Viewing",
         content:
-          "Dear Mr. Johnson,\n\nI understand that schedules can change, and I noticed you had to cancel your plumbing service scheduled for today.\n\nWe know how important it is to:\n• Keep your home systems running smoothly\n• Address plumbing issues before they become major problems\n• Maintain your property value\n• Ensure your family's comfort and safety\n\nI have these convenient appointment times available:\n• Tomorrow (Thursday) at 10:00 AM\n• Friday at 2:00 PM\n• Monday at 9:00 AM\n\nTo reschedule, simply reply to this email or call us at (555) 123-4567.\n\nYour home deserves professional care, and we're here to provide reliable service you can trust.\n\nBest regards,\nMike Thompson\nElite Plumbing Services\n\nP.S. Regular maintenance helps prevent costly emergency repairs and keeps your systems running efficiently.",
+          "Dear Ms. Rodriguez,\n\nI understand schedules can change, and I noticed you had to cancel your property viewing scheduled for tomorrow.\n\nWe know how important it is to:\n• Find the right home that meets your needs\n• Secure a property in today's competitive market\n• Move in before your current lease expires\n• Avoid temporary housing costs\n\nI have these convenient viewing times available:\n• Thursday at 4:00 PM\n• Saturday morning between 9:00 AM - 12:00 PM\n• Monday after work hours (5:30 PM - 7:00 PM)\n\nTo reschedule, simply reply to this email or call us at (555) 987-6543.\n\nThis property won't last long - 3 other applicants have viewed it this week.\n\nBest regards,\nJames Wilson\nUrban Living Properties\n\nP.S. Early applicants get first consideration and often better lease terms.",
       },
     },
     {
       icon: <MessageSquare className="w-12 h-12 text-purple-600" />,
-      title: "Real-time Customer Engagement",
-      description:
-        "SMS conversations that convert cancellations into rebookings",
+      title: "Real-time Tenant Engagement",
+      description: "SMS conversations that convert cancellations into showings",
       example: {
         type: "sms",
         conversation: [
           {
             sender: "business",
             message:
-              "Hi Sarah, this is Green Landscaping. I saw you needed to cancel your lawn service tomorrow at 2 PM. No worries! Would you like to reschedule?",
+              "Hi Alex, this is Metro Rentals. I saw you needed to cancel your viewing at 123 Main St today. No problem! Would you like to reschedule?",
           },
           {
             sender: "customer",
-            message:
-              "Yes, but I'm not sure when would work best with the weather lately.",
+            message: "Yes, but I'm not sure about the neighborhood schools.",
           },
           {
             sender: "business",
             message:
-              "I totally understand! Weather can be unpredictable. We monitor conditions closely and can work around rain. How about Thursday morning around 10 AM?",
+              "Great question! The property is zoned for Lincoln Elementary (rated 9/10) and is just 3 blocks from the middle school. I can send you the school district map if you'd like?",
           },
           {
             sender: "customer",
             message:
-              "That could work. Will you still be able to do the full treatment if it's been wet?",
+              "That would be helpful. Also, is the unit still available?",
           },
           {
             sender: "business",
             message:
-              "Absolutely! We adjust our approach based on conditions. Thursday looks perfect - sunny with no rain expected. We'll have your lawn looking great!",
+              "Yes, but we've had strong interest. Would tomorrow at 5 PM work? I can show you the schools then and discuss the lease terms. This unit qualifies for our move-in special too!",
           },
           {
             sender: "customer",
             message:
-              "Perfect! Thursday at 10 AM it is. Thanks for being flexible.",
+              "Perfect! Tomorrow at 5 PM works. Please send the school info.",
           },
           {
             sender: "business",
             message:
-              "You're welcome! Confirmed for Thursday, March 14th at 10 AM. We'll text you the night before with any weather updates. Looking forward to it!",
+              "Confirmed for tomorrow at 5 PM! I'll text you the school details shortly and meet you at the property. We'll review the lease options then - including that 1st month free special!",
           },
         ],
       },
     },
     {
       icon: <BarChart3 className="w-12 h-12 text-green-600" />,
-      title: "AI-Driven Service Insights",
-      description: "Smart analytics to prevent future cancellations",
+      title: "AI-Driven Leasing Insights",
+      description: "Smart analytics to optimize your showings",
       example: {
         type: "insights",
         data: [
           {
             metric: "Primary cancellation reason",
-            value: "Weather concerns (42%)",
+            value: "Work conflicts (38%)",
           },
           {
             metric: "Optimal contact time",
-            value: "Within 2 hours (84% response rate)",
+            value: "Within 1 hour (91% response rate)",
           },
           {
-            metric: "High-risk cancellation customers",
-            value: "8 customers flagged this week",
+            metric: "High-conversion time slots",
+            value: "Weekdays 5-7 PM (72% lease rate)",
           },
           {
-            metric: "Most effective follow-up",
-            value: "Personal SMS + service details",
+            sender: "business",
+            message:
+              "Would tomorrow at 5 PM work? I can show you the schools then and discuss the lease terms. This unit qualifies for our move-in special too!",
           },
           {
             metric: "Revenue recovered this month",
-            value: "$12,450 from 31 rescheduled jobs",
+            value: "$28,500 from 19 rescheduled showings",
           },
           {
-            metric: "Average time to reschedule",
-            value: "3.7 hours after cancellation",
+            metric: "Average time to lease",
+            value: "2.3 days faster when rescheduled",
           },
         ],
       },
@@ -103,15 +102,15 @@ const HomeServicesHowItWorks = () => {
   const closeExample = () => setActiveExample(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="pb-20 pt-30 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
-            How ReslotAI Works for Home Service Businesses
+            How LeaseAI Works for Property Managers
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-            Click each step to see a real example of how we help home service
-            companies recover appointments
+            Click each step to see real examples of how we help fill vacancies
+            faster
           </p>
         </div>
 
@@ -216,4 +215,4 @@ const HomeServicesHowItWorks = () => {
   );
 };
 
-export default HomeServicesHowItWorks;
+export default LeaseManagementHowItWorks;

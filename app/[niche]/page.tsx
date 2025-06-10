@@ -42,14 +42,6 @@ import FitnessTestimonials from "../niches/fitness/FitnessTestimonials";
 import FitnessPricing from "../niches/fitness/FitnessPricing";
 import FitnessPDFDownload from "../niches/fitness/FitnessPDFDownload";
 import FitnessFinalCTA from "../niches/fitness/FitnessFinalCTA";
-import HomeServicesHeroSection from "../niches/home-services/HomeServicesHeroSection";
-import HomeServicesHowItWorks from "../niches/home-services/HomeServicesHowItWorks";
-import HomeServicesRevenueCalculator from "../niches/home-services/HomeServicesRevenueCalculator";
-import HomeServicesCompetitionSection from "../niches/home-services/HomeServicesCompetitionSection";
-import HomeServicesTestimonials from "../niches/home-services/HomeServicesTestimonials";
-import HomeServicesPricing from "../niches/home-services/HomeServicesPricing";
-import HomeServicesPDFDownload from "../niches/home-services/HomeServicesPDFDownload";
-import HomeServicesFinalCTA from "../niches/home-services/HomeServicesFinalCTA";
 import LegalHeroSection from "../niches/legal/LegalHeroSection";
 import LegalHowItWorks from "../niches/legal/LegalHowItWorks";
 import LegalRevenueCalculator from "../niches/legal/LegalRevenueCalculator";
@@ -66,6 +58,14 @@ import PetTestimonials from "../niches/pet/PetTestimonials";
 import PetPricing from "../niches/pet/PetPricing";
 import PetPDFDownload from "../niches/pet/PetPDFDownload";
 import PetFinalCTA from "../niches/pet/PetFinalCTA";
+import LeasingCompetitionSection from "@/components/LeasingCompetitionSection";
+import LeaseManagementHeroSection from "../niches/lease/LeaseManagementHeroSection";
+import LeaseManagementHowItWorks from "../niches/lease/LeaseManagementHowItWorks";
+import LeaseRevenueCalculator from "../niches/lease/LeaseRevenueCalculator";
+import LeaseServicesTestimonials from "../niches/lease/LeaseServicesTestimonials";
+import LeaseServicesPricing from "../niches/lease/LeaseServicesPricing";
+import LeaseServicesPDFDownload from "../niches/lease/LeaseServicesPDFDownload";
+import LeaseServicesFinalCTA from "../niches/lease/LeaseServicesFinalCTA";
 
 // const content: Record<string, { title: string; subtitle: string }> = {
 //   fitness: {
@@ -82,8 +82,8 @@ import PetFinalCTA from "../niches/pet/PetFinalCTA";
 //   },
 // };
 
-export default function NicheLanding({ params }: any) {
-  const { niche } = params;
+export default async function NicheLanding({ params }: any) {
+  const { niche } = await params;
 
   //   const data = content[niche] || content["default"];
 
@@ -169,18 +169,18 @@ export default function NicheLanding({ params }: any) {
           <Footer />
         </>
       )}
-      {niche === "home" && (
+      {niche === "lease" && (
         <>
-          <Header path={"home"} />
+          <Header path={"lease"} />
           <main>
-            <HomeServicesHeroSection />
-            <HomeServicesHowItWorks />
-            <HomeServicesRevenueCalculator />
-            <HomeServicesCompetitionSection />
-            <HomeServicesTestimonials />
-            <HomeServicesPricing />
-            <HomeServicesPDFDownload />
-            <HomeServicesFinalCTA />
+            <LeaseManagementHeroSection />
+            <LeaseManagementHowItWorks />
+            <LeaseRevenueCalculator />
+            <LeasingCompetitionSection />
+            <LeaseServicesTestimonials />
+            <LeaseServicesPricing />
+            <LeaseServicesPDFDownload />
+            <LeaseServicesFinalCTA />
           </main>
           <Footer />
         </>

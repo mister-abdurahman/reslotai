@@ -100,7 +100,7 @@ const DentalHowItWorks = () => {
   const closeExample = () => setActiveExample(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="pb-20 pt-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">

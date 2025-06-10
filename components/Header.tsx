@@ -10,8 +10,16 @@ const Header = ({ path = "" }: { path?: string }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
+  const links = [
+    { href: `/${path}/`, label: "Home" },
+    { href: `${path && "/"}${path}/how-it-works`, label: "How it Works" },
+    { href: `/about-us`, label: "About Us" },
+    { href: `${path && "/"}${path}/pricing`, label: "Pricing" },
+    { href: `${path && "/"}${path}/results`, label: "Results" },
+  ];
+
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 -mb-20">
       <div className="container mx-auto px-4 h-26 flex items-center justify-between">
         <div className="hidden p-4 md:flex flex-col gap-3 w-full">
           <div className="hidden md:flex items-center justify-between border-b border-gray-200">
@@ -23,49 +31,15 @@ const Header = ({ path = "" }: { path?: string }) => {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-8">
-              <Link
-                href={`/${path || ""}/`}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                Home
-              </Link>
-              <Link
-                href={`/${path || ""}/features`}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                Features
-              </Link>
-              <Link
-                href={`/${path || ""}/how-it-works`}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                How It Works
-              </Link>
-              {/* <button
-            onClick={() => scrollToPage("/about-us")}
-            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            aria-label="Navigate href Pricing section"
-          >
-            About Us
-          </button> */}
-              <Link
-                href={`/${path || ""}/about-us`}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                About Us
-              </Link>
-              <Link
-                href={`/${path || ""}/pricing`}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                Pricing
-              </Link>
-              <Link
-                href={`/${path || ""}/results`}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                Results
-              </Link>
+              {links.map((el) => (
+                <Link
+                  key={el.href}
+                  href={el.href}
+                  className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+                >
+                  {el.label}
+                </Link>
+              ))}
               <Link href="/checkout">
                 <Button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 transition-opacity">
                   Get Started

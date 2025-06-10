@@ -50,7 +50,7 @@ const ResultsSection = () => {
   return (
     <section
       id="results"
-      className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden"
+      className="pb-20 pt-30 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0">

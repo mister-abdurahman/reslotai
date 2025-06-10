@@ -4,46 +4,45 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Trash2, Edit } from "lucide-react";
 
-const HomeServicesRevenueCalculator = () => {
-  const [services, setServices] = useState([
-    { name: "Plumbing Repair", price: 250, cancellations: 6 },
-    { name: "Electrical Work", price: 300, cancellations: 4 },
+const LeaseRevenueCalculator = () => {
+  const [leases, setLeases] = useState([
+    { name: "1-Bedroom Apartment", price: 1500, vacancies: 2 },
+    { name: "2-Bedroom Apartment", price: 2000, vacancies: 1 },
   ]);
 
-  const presetServices = [
-    { name: "Plumbing Repair", price: 250 },
-    { name: "Electrical Work", price: 300 },
-    { name: "Lawn Mowing", price: 80 },
-    { name: "Landscaping", price: 500 },
-    { name: "HVAC Service", price: 350 },
-    { name: "Roof Repair", price: 800 },
-    { name: "Gutter Cleaning", price: 150 },
+  const presetLeases = [
+    { name: "Studio Apartment", price: 1200 },
+    { name: "1-Bedroom Apartment", price: 1500 },
+    { name: "2-Bedroom Apartment", price: 2000 },
+    { name: "3-Bedroom Apartment", price: 2500 },
+    { name: "Commercial Office Space", price: 3000 },
+    { name: "Retail Unit", price: 4000 },
   ];
 
-  const addService = (serviceName: string, price: number) => {
-    setServices([...services, { name: serviceName, price, cancellations: 1 }]);
+  const addLease = (leaseName: string, price: number) => {
+    setLeases([...leases, { name: leaseName, price, vacancies: 1 }]);
   };
 
-  const removeService = (index: number) => {
-    setServices(services.filter((_, i) => i !== index));
+  const removeLease = (index: number) => {
+    setLeases(leases.filter((_, i) => i !== index));
   };
 
-  const updateService = (
+  const updateLease = (
     index: number,
     field: string,
     value: string | number
   ) => {
-    const updated = [...services];
+    const updated = [...leases];
     updated[index] = { ...updated[index], [field]: value };
-    setServices(updated);
+    setLeases(updated);
   };
 
   const calculateTotals = () => {
-    const totalLoss = services.reduce(
-      (sum, service) => sum + service.price * service.cancellations,
+    const totalLoss = leases.reduce(
+      (sum, lease) => sum + lease.price * lease.vacancies,
       0
     );
-    const recoveryRate = 0.42;
+    const recoveryRate = 0.42; // This can be adjusted based on typical lease recovery
     const totalRecovery = Math.round(totalLoss * recoveryRate);
     return { totalLoss, totalRecovery };
   };
@@ -56,11 +55,10 @@ const HomeServicesRevenueCalculator = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-inter">
-              Calculate Your Business Revenue Recovery
+              Calculate Your Lease Revenue Recovery
             </h2>
             <p className="text-xl text-gray-200 font-inter">
-              See how much revenue you could recover from home service
-              cancellations
+              See how much revenue you could recover from lease vacancies
             </p>
           </div>
 
@@ -70,59 +68,55 @@ const HomeServicesRevenueCalculator = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Your Services
+                    Your Lease Units
                   </h3>
                   <p className="text-gray-600 text-sm mb-6">
                     <Edit className="w-4 h-4 inline mr-1" />
-                    Click on any price or service name to edit it. Add your most
-                    common home services and their typical cancellation rates.
+                    Click on any price or unit type to edit it. Add your most
+                    common lease units and their typical monthly vacancy rates.
                   </p>
                 </div>
 
-                {/* Current Services */}
+                {/* Current Leases */}
                 <div className="space-y-4">
-                  {services.map((service, index) => (
+                  {leases.map((lease, index) => (
                     <div
                       key={index}
                       className="grid grid-cols-12 gap-3 items-center p-4 bg-gray-50 rounded-lg"
                     >
                       <div className="col-span-4">
                         <Input
-                          value={service.name}
+                          value={lease.name}
                           onChange={(e) =>
-                            updateService(index, "name", e.target.value)
+                            updateLease(index, "name", e.target.value)
                           }
-                          placeholder="Service name"
+                          placeholder="Unit type"
                           className="text-sm"
                         />
                       </div>
                       <div className="col-span-3">
                         <Input
                           type="number"
-                          value={service.price}
+                          value={lease.price}
                           onChange={(e) =>
-                            updateService(
-                              index,
-                              "price",
-                              Number(e.target.value)
-                            )
+                            updateLease(index, "price", Number(e.target.value))
                           }
-                          placeholder="Price"
+                          placeholder="Monthly Rent"
                           className="text-sm"
                         />
                       </div>
                       <div className="col-span-3">
                         <Input
                           type="number"
-                          value={service.cancellations}
+                          value={lease.vacancies}
                           onChange={(e) =>
-                            updateService(
+                            updateLease(
                               index,
-                              "cancellations",
+                              "vacancies",
                               Number(e.target.value)
                             )
                           }
-                          placeholder="Monthly cancellations"
+                          placeholder="Monthly vacancies"
                           className="text-sm"
                         />
                       </div>
@@ -130,7 +124,7 @@ const HomeServicesRevenueCalculator = () => {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => removeService(index)}
+                          onClick={() => removeLease(index)}
                           className="w-full"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -140,20 +134,20 @@ const HomeServicesRevenueCalculator = () => {
                   ))}
                 </div>
 
-                {/* Add Service Buttons */}
+                {/* Add Lease Buttons */}
                 <div>
                   <h4 className="font-semibold text-gray-700 mb-3">
-                    Quick Add Services:
+                    Quick Add Lease Types:
                   </h4>
                   <div className="grid grid-cols-2 gap-2">
-                    {presetServices.map((preset, index) => (
+                    {presetLeases.map((preset, index) => (
                       <Button
                         key={index}
                         variant="outline"
                         size="sm"
-                        onClick={() => addService(preset.name, preset.price)}
+                        onClick={() => addLease(preset.name, preset.price)}
                         className="text-xs justify-start"
-                        disabled={services.some((s) => s.name === preset.name)}
+                        disabled={leases.some((l) => l.name === preset.name)}
                       >
                         <Plus className="w-3 h-3 mr-1" />
                         {preset.name} (${preset.price})
@@ -161,8 +155,8 @@ const HomeServicesRevenueCalculator = () => {
                     ))}
                   </div>
                   <p className="text-xs text-gray-500 mt-2">
-                    💡 Tip: After adding a service, you can click on the price
-                    to customize it for your business.
+                    💡 Tip: After adding a unit type, you can click on the price
+                    to customize it for your properties.
                   </p>
                 </div>
               </div>
@@ -180,7 +174,7 @@ const HomeServicesRevenueCalculator = () => {
                         -${totalLoss.toLocaleString()}
                       </div>
                       <div className="text-sm text-gray-500">
-                        Lost to cancellations
+                        Lost to vacancies
                       </div>
                     </div>
 
@@ -216,4 +210,4 @@ const HomeServicesRevenueCalculator = () => {
   );
 };
 
-export default HomeServicesRevenueCalculator;
+export default LeaseRevenueCalculator;

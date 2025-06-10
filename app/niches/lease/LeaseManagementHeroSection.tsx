@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 
-const HomeServicesHeroSection = () => {
+const LeaseManagementHeroSection = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-blue-900 to-purple-500 overflow-hidden">
       {/* Animated Background Elements */}
@@ -18,15 +18,15 @@ const HomeServicesHeroSection = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-6xl font-inter font-bold text-white mb-6 animate-fade-in">
-              Stop Losing Jobs to{" "}
+              Stop Losing Tenants to{" "}
               <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
-                No-Shows
+                Vacancies
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-slide-up font-inter">
-              ReslotAI automatically reschedules cancelled home service
-              appointments and fills your schedule with zero extra work.
+              LeaseAI automatically fills cancelled rental appointments and
+              optimizes your property showings with zero extra work.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 animate-slide-up">
@@ -48,14 +48,14 @@ const HomeServicesHeroSection = () => {
             {/* Trust indicators */}
             <div className="animate-slide-up">
               <p className="text-gray-300 text-sm mb-4 font-inter">
-                Trusted by 500+ home service businesses
+                Trusted by 200+ property managers
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 opacity-60">
                 {[
-                  "Elite Plumbing",
-                  "Green Landscaping",
-                  "Pro Electric",
-                  "Home Repair Co",
+                  "Urban Living",
+                  "Coastal Properties",
+                  "Metro Rentals",
+                  "Elite Leasing Co",
                 ].map((company, index) => (
                   <div
                     key={index}
@@ -76,32 +76,32 @@ const HomeServicesHeroSection = () => {
               <div className="bg-white rounded-xl p-6 shadow-xl">
                 <div className="border-b pb-3 mb-4">
                   <h3 className="font-semibold text-gray-800">
-                    ReslotAI Dashboard
+                    LeaseAI Dashboard
                   </h3>
                   <p className="text-sm text-gray-600">
-                    Real-time appointment recovery
+                    Real-time leasing optimization
                   </p>
                 </div>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
                     <span className="text-sm text-gray-700">
-                      Jobs Recovered
+                      Vacancies Filled
                     </span>
                     <span className="font-bold text-green-600">
-                      47 this month
+                      32 this month
                     </span>
                   </div>
                   <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
                     <span className="text-sm text-gray-700">
-                      Customer Response Rate
+                      Tenant Response Rate
                     </span>
-                    <span className="font-bold text-blue-600">81%</span>
+                    <span className="font-bold text-blue-600">78%</span>
                   </div>
                   <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
                     <span className="text-sm text-gray-700">
-                      Schedule Utilization
+                      Property Occupancy
                     </span>
-                    <span className="font-bold text-purple-600">94%</span>
+                    <span className="font-bold text-purple-600">97%</span>
                   </div>
                 </div>
               </div>
@@ -113,4 +113,4 @@ const HomeServicesHeroSection = () => {
   );
 };
 
-export default HomeServicesHeroSection;
+export default LeaseManagementHeroSection;

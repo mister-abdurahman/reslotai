@@ -46,8 +46,8 @@ const nicheContents: NicheContent[] = [
     path: "doctors",
   },
   {
-    niche: "Home services",
-    path: "home",
+    niche: "Lease",
+    path: "lease",
   },
 ];
 
