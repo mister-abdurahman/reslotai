@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Calendar, Calculator, Tag } from "lucide-react";
+import Link from "next/link";
 
 const LeaseServicesFinalCTA = () => {
   return (
@@ -54,13 +55,15 @@ const LeaseServicesFinalCTA = () => {
             >
               Try It for Free
             </Button>
+            <Link href={'#calculator'}>
             <Button
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg"
-            >
+              >
               Calculate Your Revenue
             </Button>
+              </Link>
           </div>
 
           <div className="text-blue-200 text-sm">

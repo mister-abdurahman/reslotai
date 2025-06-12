@@ -5,46 +5,46 @@ const LeasingCompetitionSection = () => {
   const withoutJourney = [
     {
       step: 1,
-      title: "Tour Scheduled",
-      description: "Prospect books apartment tour",
+      title: "Failed Follow-up",
+      description: "No-shows go without follow-up",
     },
     {
       step: 2,
-      title: "No-Show Occurs",
-      description: "Prospect doesn't show up for scheduled tour",
+      title: "Manual Follow-up",
+      description: "Leasing agents chase leads manually",
     },
     {
       step: 3,
-      title: "Manual Follow-up",
-      description: "Leasing agent manually calls or emails (if they remember)",
+      title: "Lost Opportunity",
+      description: "Rent loss adds up quietly",
     },
     {
       step: 4,
-      title: "Lost Opportunity",
-      description: "Prospect moves on to competitor, revenue lost",
+      title: "No Insights",
+      description: "No insight into why renters cancel",
     },
   ];
 
   const withJourney = [
     {
       step: 1,
-      title: "Tour Scheduled",
-      description: "Prospect books apartment tour",
+      title: "Successful follow-up",
+      description: "Branded SMS & emails go out automatically",
     },
     {
       step: 2,
-      title: "No-Show Detected",
-      description: "ReslotAI automatically detects the missed appointment",
+      title: "Automatic follow-up",
+      description: "Prospects re-engage with no extra effort",
     },
     {
       step: 3,
-      title: "Smart Re-engagement",
-      description: "Automated SMS/email sent based on prospect's intent level",
+      title: "Regained Opportunity",
+      description: "Recovered appointments help fill your calendar",
     },
     {
       step: 4,
-      title: "Tour Rescheduled",
-      description: "Prospect re-books and completes tour, lease signed",
+      title: "Useful Insights",
+      description: "Surveys & data reveal what drives rebookings",
     },
   ];
 
@@ -53,11 +53,10 @@ const LeasingCompetitionSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
-            How we recover more missed tours than manual follow-ups ever could.
+            ReslotAI vs. Manual Leasing Follow-Up
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Follow the customer journey below and see how our software
-            transforms missed opportunities into signed leases.
+            What Missed Tour Recovery Looks Like With and Without Automation
           </p>
         </div>
 

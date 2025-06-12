@@ -9,8 +9,9 @@ const LeaseManagementHowItWorks = () => {
   const steps = [
     {
       icon: <Mail className="w-12 h-12 text-blue-600" />,
-      title: "Smart Tenant Follow-ups",
-      description: "Automated emails and SMS for cancelled showings",
+      title: "Targeted Email Offers",
+      description:
+        "Send follow-ups with exclusive offersAutomated emails re-engage potential renter’s who missed or canceled tours. Each message is tailored to the renter’s original interest, highlights benefits, and includes incentives tailored to your strategy — like limited-time discounts or early access.",
       example: {
         type: "email",
         subject: "Your Perfect Rental Awaits - Let's Reschedule Your Viewing",
@@ -20,8 +21,9 @@ const LeaseManagementHowItWorks = () => {
     },
     {
       icon: <MessageSquare className="w-12 h-12 text-purple-600" />,
-      title: "Real-time Tenant Engagement",
-      description: "SMS conversations that convert cancellations into showings",
+      title: "Instant SMS Outreach",
+      description:
+        "Send branded texts that instantly address renter objectionsText outreach happens instantly — with objection-overcoming offers that you can edit to suit your strategy, or let ReslotAI’s trained model optimize for conversions using data from past responses.",
       example: {
         type: "sms",
         conversation: [
@@ -64,8 +66,9 @@ const LeaseManagementHowItWorks = () => {
     },
     {
       icon: <BarChart3 className="w-12 h-12 text-green-600" />,
-      title: "AI-Driven Leasing Insights",
-      description: "Smart analytics to optimize your showings",
+      title: " AI-Driven Insights",
+      description:
+        "Short high-engagement surveys that uncover why renters cancelBuilt-in micro-surveys help identify why tours are missed and what brings renters back. Responses trigger tailored follow-ups and feed ReslotAI’s AI engine, delivering ongoing optimization through actionable leasing insights.",
       example: {
         type: "insights",
         data: [
@@ -106,9 +109,14 @@ const LeaseManagementHowItWorks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">
-            How LeaseAI Works for Property Managers
+            How ReslotAI Fits Into Your Property Management Workflow
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+            Once missed tours are added, ReslotAI uses automated outreach to
+            help you recover lost appointments. It integrates effortlessly into
+            your current workflow — no CRM replacement, no manual chasing.
+          </p>
+          <p className="text-xs mt-4 text-gray-600 max-w-3xl mx-auto font-inter">
             Click each step to see real examples of how we help fill vacancies
             faster
           </p>
@@ -125,7 +133,7 @@ const LeaseManagementHowItWorks = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-4 font-inter">
                 {step.title}
               </h3>
-              <p className="text-lg text-gray-600 mb-4 font-inter">
+              <p className="text-sm text-gray-600 mb-4 font-inter">
                 {step.description}
               </p>
               <Button

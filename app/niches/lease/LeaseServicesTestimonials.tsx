@@ -6,28 +6,28 @@ const LeaseServicesTestimonials = () => {
   const testimonials = [
     {
       rating: 5,
-      text: "We reduced our vacancy rate by 15% in just two months!",
-      author: "Maria Rodriguez",
-      title: "Property Manager",
-      business: "CityView Apartments",
+      text: "We were losing leads until we used ReslotAI. Now every missed tour turns into another shot at a lease, it connects fairly easily with Rented direct.",
+      author: "Rachel Thompson",
+      title: "Leasing Manager",
+      business: " Downtown Apartments",
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
     },
     {
       rating: 5,
-      text: "ReslotAI helped us fill vacant units 30% faster — prospective tenants love the quick response.",
-      author: "David Chen",
-      title: "Leasing Director",
-      business: "Summit Realty Group",
+      text: "We use Buildium, and ReslotAI plugged in with zero hassle. It paid for itself in a week.",
+      author: "Michael Rodriguez ",
+      title: "Property Manager",
+      business: "Skyline Communities",
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b332c913?w=300&h=300&fit=crop&crop=face",
     },
     {
       rating: 5,
-      text: "Implementation was seamless. It's automatically rebooking cancelled tours and attracting new leads.",
-      author: "Jessica Lee",
-      title: "Leasing Agent",
-      business: "Elite Properties",
+      text: "There was no good way to follow up using our AppFolio stack — until ReslotAI filled the gap and helped us retain more renters.",
+      author: "Amanda Chen",
+      title: "Regional Director",
+      business: "Metro Living",
       image:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
     },
@@ -38,7 +38,7 @@ const LeaseServicesTestimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-inter">
-            What Lease Professionals Say
+            What Leasing Teams Are Saying
           </h2>
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="flex">
@@ -52,7 +52,7 @@ const LeaseServicesTestimonials = () => {
             <span className="text-xl font-semibold text-white ml-2">4.9/5</span>
           </div>
           <p className="text-lg text-gray-200">
-            Trusted by 500+ property management businesses
+            Trusted by 200+ property management businesses
           </p>
         </div>
 

@@ -50,15 +50,20 @@ const LeaseRevenueCalculator = () => {
   const { totalLoss, totalRecovery } = calculateTotals();
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500">
+    <section
+      id="calculator"
+      className="py-20 bg-gradient-to-br from-blue-900 to-purple-500"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-inter">
-              Calculate Your Lease Revenue Recovery
+              Estimate the Revenue Lost From Missed Tours
             </h2>
-            <p className="text-xl text-gray-200 font-inter">
-              See how much revenue you could recover from lease vacancies
+            <p className="text-lg text-gray-200 font-inter">
+              Every no-show represents lost rent. Use our free calculator to see
+              how much missed revenue ReslotAI could recover for your leasing
+              team — no guesswork required.
             </p>
           </div>
 
