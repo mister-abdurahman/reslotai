@@ -9,7 +9,7 @@ import RevenueCalculator from "@/components/RevenueCalculator";
 export default function Home() {
   return (
     <div className="min-h-screen font-inter">
-      <Header path={""} />
+      <Header />
       <main>
         <HeroSection />
         <HowItWorksSection />

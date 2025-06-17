@@ -1,28 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CircleChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import nicheContents from "@/store/NichesContents";
-import Modal from "./Modal";
 
-const Header = ({ path = "" }: { path?: string }) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
 
   const links = [
-    { href: `/${path}/`, label: "Home" },
-    { href: `${path && "/"}${path}/how-it-works`, label: "How it Works" },
+    { href: `/`, label: "Home" },
+    { href: `/how-it-works`, label: "How it Works" },
     { href: `/about-us`, label: "About Us" },
-    { href: `${path && "/"}${path}/pricing`, label: "Pricing" },
-    { href: `${path && "/"}${path}/results`, label: "Results" },
+    { href: `/pricing`, label: "Pricing" },
+    { href: `/results`, label: "Results" },
+    { href: `/blogs`, label: "Blogs" },
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 -mb-20">
-      <div className="container mx-auto px-4 h-26 flex items-center justify-between">
+    <header className="fixed top-0 w-full bg-white/95 border-b border-gray-300 backdrop-blur-sm z-50 -mb-20">
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="hidden p-4 md:flex flex-col gap-3 w-full">
-          <div className="hidden md:flex items-center justify-between border-b border-gray-200">
+          <div className="hidden md:flex items-center justify-between">
             <Link
               href="/"
               className="font-ibm font-bold text-2xl text-gray-900"
@@ -46,31 +44,6 @@ const Header = ({ path = "" }: { path?: string }) => {
                 </Button>
               </Link>
             </nav>
-          </div>
-          <div className="justify-center flex items-center gap-3">
-            <p className="text-sm font-semibold  text-center tracking-wider">
-              Select Your Industry
-            </p>
-            <CircleChevronDown
-              width={17}
-              height={17}
-              onClick={() => setOpenModal(true)}
-              className="cursor-pointer hover:text-purple-600 transition-colors"
-            />
-            <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-              <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-8 md:grid-rows-4 gap-4">
-                {nicheContents.map((el, i) => (
-                  <Link href={`/${el.path.toLowerCase()}`} key={i}>
-                    <button
-                      key={i}
-                      className="text-purple-600 border-2 cursor-pointer border-purple-600 px-3 py-1 rounded-full"
-                    >
-                      {el.niche}
-                    </button>
-                  </Link>
-                ))}
-              </div>
-            </Modal>
           </div>
         </div>
         {/* Logo */}
@@ -96,31 +69,6 @@ const Header = ({ path = "" }: { path?: string }) => {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-          <div className="justify-center flex items-center gap-3">
-            <p className="text-sm font-semibold  text-center tracking-wider">
-              Select Your Industry
-            </p>
-            <CircleChevronDown
-              width={17}
-              height={17}
-              onClick={() => setOpenModal(true)}
-              className="cursor-pointer hover:text-purple-600 transition-colors"
-            />
-            <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-              <div className="grid grid-cols-2 grid-rows-4 gap-4">
-                {nicheContents.map((el, i) => (
-                  <Link href={`/${el.path.toLowerCase()}`} key={i}>
-                    <button
-                      key={i}
-                      className="text-purple-600 border-2 cursor-pointer border-purple-600 px-3 py-1 rounded-full"
-                    >
-                      {el.niche}
-                    </button>
-                  </Link>
-                ))}
-              </div>
-            </Modal>
-          </div>
         </div>
         {/* <button
           className="md:hidden p-2"
@@ -135,28 +83,25 @@ const Header = ({ path = "" }: { path?: string }) => {
         {isMenuOpen && (
           <div className="absolute top-16 left-0 w-full bg-white border-b border-gray-200 md:hidden">
             <nav className="flex flex-col p-4 space-y-4">
-              <Link
-                href={`/${path || ""}/features`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link href={`/features`} onClick={() => setIsMenuOpen(false)}>
                 Features
               </Link>
               <Link
-                href={`/${path || ""}/how-it-works`}
+                href={`/how-it-works`}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 onClick={() => setIsMenuOpen(false)}
               >
                 How It Works
               </Link>
               <Link
-                href={`/${path || ""}/about-us`}
+                href={`/about-us`}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About Us
               </Link>
               <Link
-                href={`/${path || ""}/pricing`}
+                href={`/pricing`}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 aria-label="Navigate to Pricing section"
@@ -164,7 +109,7 @@ const Header = ({ path = "" }: { path?: string }) => {
                 Pricing
               </Link>
               <Link
-                href={`/${path || ""}/results`}
+                href={`/results`}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors text-left"
                 aria-label="Navigate to Results section"
