@@ -29,7 +29,6 @@ export async function sanityFetch<T>({
   tags?: string[];
 }): Promise<T> {
   return sanityClient.fetch<T>(query, params, {
-    // These options are passed to the underlying `fetch` call
     next: {
       revalidate: process.env.NODE_ENV === "production" ? 60 : 1, // ISR for 60 seconds in production, 1 second in development for quicker updates
       tags, // Tags for on-demand revalidation if you set up webhooks
