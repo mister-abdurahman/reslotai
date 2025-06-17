@@ -175,11 +175,7 @@ const components = {
 };
 
 // --- Blog Post Page Component (Server Component) ---
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function PostPage({ params }: { params: any }) {
   const post = await sanityFetch<Post>({
     query: postQuery,
     params: { slug: params.slug },
