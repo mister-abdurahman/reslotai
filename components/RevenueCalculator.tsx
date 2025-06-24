@@ -67,7 +67,7 @@ const RevenueCalculator = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }}
       />
-      <section id="revenue-calculator" className="py-20 bg-white">
+      <section id="revenue-calculator" className="py-10 sm:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">

@@ -73,7 +73,7 @@ const ResultsSection = () => {
 
       <section
         id="results"
-        className="p-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden"
+        className="sm:px-20 sm:py-20 px-3 py-8 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0">
@@ -81,7 +81,7 @@ const ResultsSection = () => {
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-400/10 rounded-full blur-xl"></div>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container sm:mx-auto sm:px-4 relative z-10">
           {/* Performance Highlights */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white font-inter">

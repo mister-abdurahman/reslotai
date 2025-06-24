@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <>
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden">
+      <section className="py-10 sm:py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden">
         {/* <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 bg-test text-white relative overflow-hidden"> */}
         {/* Background decorative elements */}
         <div className="absolute inset-0">

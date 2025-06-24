@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const PainPointSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden">
+    <section className="sm:py-20 py-8 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full blur-xl"></div>
@@ -37,9 +37,9 @@ const PainPointSection = () => {
                 <p className="text-red-200">Basic automation approach</p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-3 sm:space-y-6">
                 {/* Step 1 */}
-                <div className="flex items-center gap-4 bg-red-800/40 p-4 rounded-lg">
+                <div className="flex items-center gap-4 bg-red-800/40 p-3 sm:p-4 rounded-lg">
                   <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     1
                   </div>
@@ -99,9 +99,9 @@ const PainPointSection = () => {
                 <p className="text-green-200">Intelligent recovery system</p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-3 sm:space-y-6">
                 {/* Step 1 */}
-                <div className="flex items-center gap-4 bg-green-800/40 p-4 rounded-lg">
+                <div className="flex items-center gap-4 bg-green-800/40 p-3 sm:p-4 rounded-lg">
                   <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     1
                   </div>

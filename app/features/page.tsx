@@ -11,7 +11,7 @@ function page() {
   return (
     <div className="min-h-screen font-inter">
       <Header />
-      <main>
+      <main className="pt-12 sm:pt-0">
         <HowItWorksSection />
         <PainPointSection />
         <RevenueCalculator />

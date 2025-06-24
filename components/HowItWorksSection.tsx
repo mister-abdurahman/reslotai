@@ -155,7 +155,7 @@ const HowItWorksSection = () => {
   };
 
   return (
-    <section id="features" className="pb-20 pt-30 bg-gray-50">
+    <section id="features" className="pb-8 sm:pb-20 pt-8 sm:pt-30 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-inter">

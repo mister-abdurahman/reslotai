@@ -7,7 +7,7 @@ function Results() {
   return (
     <div className="min-h-screen font-inter">
       <Header />
-      <main>
+      <main className="pt-12 sm:pt-0">
         <ResultsSection />
         <PricingSection />
       </main>
