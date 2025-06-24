@@ -1,27 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+// import { Input } from "@/components/ui/input";
 import { Check, Star } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 
 const FinalHeroSection = () => {
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
+  // const [email, setEmail] = useState("");
+  // const { toast } = useToast();
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "Success!",
-        description: "We'll be in touch soon to start your revenue recovery.",
-      });
-      setEmail("");
-    }
-  };
+  // const handleEmailSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (email) {
+  //     toast({
+  //       title: "Success!",
+  //       description: "We'll be in touch soon to start your revenue recovery.",
+  //     });
+  //     setEmail("");
+  //   }
+  // };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden">
+    <section
+      id="call-to-action"
+      className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-400/10 rounded-full blur-xl"></div>
@@ -35,8 +38,8 @@ const FinalHeroSection = () => {
             Ready to Stop Losing Money on Cancellations?
           </h2>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 font-inter">
-            Join 150+ businesses recovering lost revenue automatically with
-            ReslotAI
+            Join 150+ businesses recovering lost{" "}
+            <a href="revenue-calculator">revenue</a> automatically with ReslotAI
           </p>
 
           {/* Key benefits recap */}
@@ -69,10 +72,39 @@ const FinalHeroSection = () => {
           {/* CTA Section */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
             <h3 className="text-2xl font-bold mb-4 font-inter">
+              Start Increasing Profit Today
+            </h3>
+            <p className="text-gray-200 mb-6">
+              No setup fees. No long-term contracts.{" "}
+              <a href="#pricing">Cancel anytime.</a>
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button
+                size="lg"
+                type="submit"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 font-semibold px-8 py-4"
+                aria-label="Get started"
+              >
+                Get Started
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-blue-900 hover:bg-white hover:text-blue-800 font-semibold px-8 py-4 text-lg transition-all transform hover:scale-105"
+                aria-label="Schedule a demo"
+              >
+                Schedule Demo
+              </Button>
+            </div>
+          </div>
+          {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-4 font-inter">
               Start Your Free Trial Today
             </h3>
             <p className="text-gray-200 mb-6">
-              No setup fees. No long-term contracts. Cancel anytime.
+              No setup fees. No long-term contracts.{" "}
+              <a href="#pricing">Cancel anytime.</a>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
@@ -93,7 +125,6 @@ const FinalHeroSection = () => {
               </Button>
             </div>
 
-            {/* Email capture */}
             <form
               onSubmit={handleEmailSubmit}
               className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
@@ -115,7 +146,7 @@ const FinalHeroSection = () => {
                 Get Started
               </Button>
             </form>
-          </div>
+          </div> */}
 
           {/* Trust badges and social proof */}
           <div className="space-y-8">

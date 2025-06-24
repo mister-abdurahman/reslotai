@@ -1,24 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+// import { Input } from "@/components/ui/input";
 import { Check, Star } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import Link from "next/link";
+// import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
+  // const [email, setEmail] = useState("");
+  // const { toast } = useToast();
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "Success!",
-        description: "We'll be in touch soon to start your revenue recovery.",
-      });
-      setEmail("");
-    }
-  };
+  // const handleEmailSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (email) {
+  //     toast({
+  //       title: "Success!",
+  //       description: "We'll be in touch soon to start your revenue recovery.",
+  //     });
+  //     setEmail("");
+  //   }
+  // };
 
   return (
     <>
@@ -76,6 +77,34 @@ const Footer = () => {
             {/* CTA Section */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold mb-4 font-inter">
+                Start Increasing Profit Today
+              </h3>
+              <p className="text-gray-200 mb-6">
+                No setup fees. No long-term contracts. Cancel anytime.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white bg-white text-blue-800 hover:bg-white hover:text-blue-900 font-semibold px-8 py-4 text-lg transition-all transform hover:scale-105"
+                  aria-label="Schedule a demo"
+                >
+                  <a href="/pricing">Get Started</a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white bg-white text-blue-800 hover:bg-white hover:text-blue-900 font-semibold px-8 py-4 text-lg transition-all transform hover:scale-105"
+                  aria-label="Schedule a demo"
+                >
+                  <a href="/pricing">Schedule Demo</a>
+                </Button>
+              </div>
+            </div>
+            {/* Original CTA Section */}
+            {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
+              <h3 className="text-2xl font-bold mb-4 font-inter">
                 Start Your Free Trial Today
               </h3>
               <p className="text-gray-200 mb-6">
@@ -100,7 +129,6 @@ const Footer = () => {
                 </Button>
               </div>
 
-              {/* Email capture */}
               <form
                 onSubmit={handleEmailSubmit}
                 className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
@@ -122,7 +150,7 @@ const Footer = () => {
                   Get Started.
                 </Button>
               </form>
-            </div>
+            </div> */}
 
             {/* Trust badges and social proof */}
             <div className="space-y-8">
@@ -191,24 +219,40 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
               <ul className="space-y-2 text-gray-600">
-                <li>Features</li>
-                <li>Pricing</li>
-                <li>Integrations</li>
+                <li>
+                  <a href="/how-it-works">Features</a>{" "}
+                </li>
+                <li>
+                  <a href="/pricing">Pricing</a>
+                </li>
+                <li>
+                  <a href="/checkout">Use App</a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
               <ul className="space-y-2 text-gray-600">
-                <li>About</li>
-                <li>Contact</li>
-                <li>Support</li>
+                <li>
+                  <a href="/about">About</a>
+                </li>
+                <li>
+                  <a href="/about">Contact</a>
+                </li>
+                <li>
+                  <a href="/about">Support</a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
               <ul className="space-y-2 text-gray-600">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
+                <li>
+                  <Link href={"/privacy-policy"}>Privacy Policy</Link>{" "}
+                </li>
+                <li>
+                  <Link href={"/terms-of-service"}>Terms of Service</Link>{" "}
+                </li>
               </ul>
             </div>
           </div>
