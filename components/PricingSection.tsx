@@ -132,7 +132,7 @@ const PricingSection = () => {
                     } text-white font-semibold`}
                     aria-label={`Start ${plan.name} plan`}
                   >
-                    <a href="/pricing">{plan.cta}</a>
+                    <a href="/checkout">{plan.cta}</a>
                   </Button>
 
                   <ul className="space-y-4">
