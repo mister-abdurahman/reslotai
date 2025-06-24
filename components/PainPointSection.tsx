@@ -15,16 +15,19 @@ const PainPointSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white font-inter">
-              How ReslotAI Recovers More Revenue Than Other Tools
+              Why ReslotAI Is the No-Show Recovery Leader
             </h2>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-              See the difference between generic automation and intelligent
-              recovery.
+              Because recovering no-shows takes more than reminders—ReslotAI
+              does what others can’t.
             </p>
           </div>
 
           {/* Funnel Comparison */}
-          <div className="grid md:grid-cols-2 gap-8 items-start mb-16">
+          <div
+            id="comparison-section"
+            className="grid md:grid-cols-2 gap-8 items-start mb-16"
+          >
             {/* Left Funnel - Other Software */}
             <div className="bg-red-900/30 backdrop-blur-sm rounded-2xl p-8 border border-red-400/30">
               <div className="text-center mb-8">
@@ -64,7 +67,7 @@ const PainPointSection = () => {
                   <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     3
                   </div>
-                  <span className="text-red-200">Customer ignores</span>
+                  <span className="text-red-200">Customer ignores it</span>
                 </div>
                 <div className="flex justify-center">
                   <ArrowDown className="w-6 h-6 text-red-400" />
@@ -74,14 +77,15 @@ const PainPointSection = () => {
                 <div className="flex items-center gap-4 bg-red-800/60 p-4 rounded-lg border border-red-400/50">
                   <X className="w-8 h-8 text-red-400" />
                   <span className="text-red-200 font-semibold">
-                    Revenue lost
+                    No insight into why they canceled
                   </span>
                 </div>
               </div>
 
               <div className="mt-8 text-center bg-red-500/20 border border-red-400/30 p-4 rounded-lg">
                 <p className="text-red-200 font-semibold">
-                  Limited automation. Low recovery.
+                  Result: <a href="revenue-calculator">Revenue lost.</a> Limited
+                  automation. High no-show rates.
                 </p>
               </div>
             </div>
@@ -102,7 +106,7 @@ const PainPointSection = () => {
                     1
                   </div>
                   <span className="text-green-200">
-                    Missed appointment triggers smart survey
+                    Intelligent survey triggered after every no-show
                   </span>
                 </div>
                 <div className="flex justify-center">
@@ -115,7 +119,7 @@ const PainPointSection = () => {
                     2
                   </div>
                   <span className="text-green-200">
-                    Survey collects reason + objection
+                    Captures cancellation reason and objection
                   </span>
                 </div>
                 <div className="flex justify-center">
@@ -128,7 +132,7 @@ const PainPointSection = () => {
                     3
                   </div>
                   <span className="text-green-200">
-                    Personalized offer sent
+                    Sends personalized offer to rebook
                   </span>
                 </div>
                 <div className="flex justify-center">
@@ -140,7 +144,9 @@ const PainPointSection = () => {
                   <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                     4
                   </div>
-                  <span className="text-green-200">Customer reschedules</span>
+                  <span className="text-green-200">
+                    Reschedules with one-click
+                  </span>
                 </div>
                 <div className="flex justify-center">
                   <ArrowDown className="w-6 h-6 text-green-400" />
@@ -150,14 +156,14 @@ const PainPointSection = () => {
                 <div className="flex items-center gap-4 bg-green-800/40 p-4 rounded-lg border border-green-400/50">
                   <Zap className="w-8 h-8 text-green-400" />
                   <span className="text-green-200 text-sm">
-                    (If ignored) Automated SMS/email follow-ups
+                    Continues SMS/email follow-ups automatically
                   </span>
                 </div>
               </div>
 
               <div className="mt-8 text-center bg-green-500/20 border border-green-400/30 p-4 rounded-lg">
                 <p className="text-green-200 font-semibold">
-                  AI handles recovery. Revenue comes back.
+                  Result: Time saved. Clients recovered. Revenue regained.
                 </p>
               </div>
             </div>
@@ -168,7 +174,7 @@ const PainPointSection = () => {
               size="lg"
               className="bg-white text-blue-900 hover:bg-blue-50 font-semibold px-8 py-3 text-lg"
             >
-              Try the Smarter Funnel – For Free
+              <a href="/how-it-works">See How ReslotAI Stacks Up</a>
             </Button>
           </div>
         </div>

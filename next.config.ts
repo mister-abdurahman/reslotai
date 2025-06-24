@@ -36,6 +36,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

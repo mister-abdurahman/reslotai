@@ -10,10 +10,11 @@ const HowItWorksSection = () => {
     {
       icon: "✉️",
       title: "Automated Email Recovery",
+      sectionId: "email-recovery",
       description:
-        "AI sends personalized recovery emails based on cancellations.",
+        "Behavior-based email follow-ups that turn silence into rebookings.",
       highlight:
-        "Business owners can set logic like 'if price is the reason, offer discount.'",
+        "ReslotAI sends smart, timed emails after every missed appointment—improving based on past replies. Add custom offers tied to price objections to win back hesitant clients",
       mockup: (
         <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
           <div className="border-b pb-3 mb-4">
@@ -51,10 +52,10 @@ const HowItWorksSection = () => {
     {
       icon: "💬",
       title: "Smart SMS Recovery",
-      description:
-        "Intelligent text messaging that responds to customer needs.",
+      sectionId: "sms-recovery",
+      description: "Conversational SMS that rebooks clients in seconds.",
       highlight:
-        "Customer replies 'Yes,' and ReslotAI reschedules automatically.",
+        "When a client misses an appointment, ReslotAI sends a tailored text. If they respond, it reschedules them instantly. Every message is tied to objections like “price” or “timing” to maximize success.",
       mockup: (
         <div className="bg-gray-100 rounded-lg shadow-lg p-4 max-w-sm mx-auto">
           <div className="bg-white rounded-t-lg p-3 border-b">
@@ -87,11 +88,11 @@ const HowItWorksSection = () => {
     },
     {
       icon: "📋",
+      sectionId: "survey-insights",
       title: "AI-Driven Surveys + Insights",
-      description:
-        "Quick 10-second surveys that help us serve customers better.",
+      description: "Understand why clients cancel—and fix it fast.",
       highlight:
-        "We track your most-cancelled services and show insights over time.",
+        "Clients respond to quick, anonymous surveys that reveal the real reason they didn’t show. Use this data to personalize future messages and reduce no-shows over time.",
       mockup: (
         <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
           <div className="text-center mb-4">
@@ -161,8 +162,7 @@ const HowItWorksSection = () => {
             How It Works
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-            Three powerful tools that work together to automatically recover
-            lost revenue from cancellations
+            Your Client Retention Engine — Designed to Bring Customers Back
           </p>
         </div>
 
@@ -187,7 +187,10 @@ const HowItWorksSection = () => {
         </div>
 
         {/* Slide Content */}
-        <div className="relative bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-6xl mx-auto">
+        <div
+          id={slides[currentSlide].sectionId}
+          className={`relative bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-6xl mx-auto`}
+        >
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Content Side */}
             <div className="text-center md:text-left">
