@@ -21,8 +21,55 @@ if (supabaseUrl && supabaseAnonKey) {
   console.warn("Supabase environment variables not configured");
 }
 
+const plans = [
+  {
+    name: "Starter",
+    annualPrice: 335,
+    monthlyPrice: 39.99,
+    description: "Perfect for small businesses getting started",
+    features: [
+      "Up to 100 contacts",
+      "1 user",
+      "1 editable objection-overcoming message",
+      "Automated follow-up & surveys",
+      "Basic analytics",
+    ],
+    popular: false,
+    cta: "Start With Starter",
+  },
+  {
+    name: "Growth",
+    annualPrice: 629,
+    monthlyPrice: 74.99,
+    description: "Ideal for growing businesses",
+    features: [
+      "Up to 1,000 contacts",
+      "Unlimited users",
+      "Unlimited editable templates",
+      "Advanced analytics",
+      "Priority support",
+    ],
+    popular: true,
+    cta: "Scale With Growth",
+  },
+  {
+    name: "Pro",
+    annualPrice: 1259,
+    monthlyPrice: 149.99,
+    description: "For established businesses with high volume",
+    features: [
+      "Unlimited contacts/users",
+      "Full analytics dashboard",
+      "Dedicated account manager",
+      "Unlimited objection-overcoming templates with customization",
+    ],
+    popular: false,
+    cta: "Go Pro and Win Every No-Show",
+  },
+];
+
 const Checkout = () => {
-  const [selectedPlan, setSelectedPlan] = useState("growth");
+  const [selectedPlan, setSelectedPlan] = useState(1);
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">(
     "annual"
   );
@@ -41,45 +88,6 @@ const Checkout = () => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
-
-  const plans = {
-    starter: {
-      name: "Starter",
-      monthlyPrice: 50,
-      annualPrice: 500,
-      features: [
-        "1 user seat",
-        "100 contacts",
-        "Email & SMS recovery",
-        "Basic analytics",
-      ],
-      popular: false,
-    },
-    growth: {
-      name: "Growth",
-      monthlyPrice: 100,
-      annualPrice: 1000,
-      features: [
-        "Unlimited seats",
-        "2,000 contacts",
-        "Advanced analytics",
-        "Priority support",
-      ],
-      popular: true,
-    },
-    pro: {
-      name: "Pro",
-      monthlyPrice: 150,
-      annualPrice: 1500,
-      features: [
-        "Unlimited everything",
-        "Custom integrations",
-        "Dedicated manager",
-        "White-label option",
-      ],
-      popular: false,
-    },
   };
 
   const handleCheckout = async () => {
@@ -117,11 +125,12 @@ const Checkout = () => {
     }
   };
 
-  const currentPlan = plans[selectedPlan as keyof typeof plans];
+  const currentPlan = plans[selectedPlan as number] || plans[1];
+  // const currentPlan = plans[selectedPlan as keyof typeof plans];
   const monthlyPrice =
     billingCycle === "annual"
-      ? Math.round(currentPlan.annualPrice / 12)
-      : Math.round(currentPlan.monthlyPrice * 0.75); // 25% discount
+      ? Math.round((currentPlan?.annualPrice / 12) * 0.4)
+      : Math.round(currentPlan?.monthlyPrice * 0.75); // 25% discount
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -178,54 +187,57 @@ const Checkout = () => {
 
           {/* Plans */}
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {Object.entries(plans).map(([key, plan]) => (
-              <Card
-                key={key}
-                className={`relative cursor-pointer transition-all ${
-                  selectedPlan === key
-                    ? "ring-2 ring-blue-500 transform scale-105"
-                    : "hover:shadow-lg"
-                } ${plan.popular ? "border-blue-500" : ""}`}
-                onClick={() => setSelectedPlan(key)}
-              >
-                {plan.popular && (
-                  <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-blue-500">
-                    Most Popular
-                  </Badge>
-                )}
-                <CardHeader className="text-center pb-2">
-                  <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <div className="space-y-1">
-                    <div className="text-3xl font-bold text-green-600">
-                      $
-                      {billingCycle === "annual"
-                        ? Math.round(plan.annualPrice / 12)
-                        : Math.round(plan.monthlyPrice * 0.75)}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      {billingCycle === "annual"
-                        ? "per month, billed annually"
-                        : "per month"}
-                    </div>
-                    {billingCycle === "monthly" && (
-                      <div className="text-sm text-red-600 font-medium">
-                        25% OFF - Limited Time!
+            {Object.entries(plans).map(([key, plan]) => {
+              // console.log(key);
+              return (
+                <Card
+                  key={key}
+                  className={`relative cursor-pointer transition-all ${
+                    selectedPlan === Number(key)
+                      ? "ring-2 ring-blue-500 transform scale-105"
+                      : "hover:shadow-lg"
+                  } ${plan.popular ? "border-blue-500" : ""}`}
+                  onClick={() => setSelectedPlan(Number(key))}
+                >
+                  {plan.popular && (
+                    <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-blue-500">
+                      Most Popular
+                    </Badge>
+                  )}
+                  <CardHeader className="text-center pb-2">
+                    <CardTitle className="text-xl">{plan.name}</CardTitle>
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold text-green-600">
+                        $
+                        {billingCycle === "annual"
+                          ? Math.round(plan.annualPrice / 12)
+                          : Math.round(plan.monthlyPrice * 0.75)}
                       </div>
-                    )}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+                      <div className="text-sm text-gray-500">
+                        {billingCycle === "annual"
+                          ? "per month, billed annually"
+                          : "per month"}
+                      </div>
+                      {billingCycle === "monthly" && (
+                        <div className="text-sm text-red-600 font-medium">
+                          25% OFF - Limited Time!
+                        </div>
+                      )}
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
           {/* Checkout Section */}
