@@ -1,137 +1,12 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Check, Clock } from "lucide-react";
-import { createClient } from "@supabase/supabase-js";
-import { toast } from "sonner";
+import React from "react";
+import { Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-// Initialize Supabase client with proper error handling
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-let supabase = null;
-
-if (supabaseUrl && supabaseAnonKey) {
-  supabase = createClient(supabaseUrl, supabaseAnonKey);
-} else {
-  console.warn("Supabase environment variables not configured");
-}
-
-const plans = [
-  {
-    name: "Starter",
-    annualPrice: 335,
-    monthlyPrice: 39.99,
-    description: "Perfect for small businesses getting started",
-    features: [
-      "Up to 100 contacts",
-      "1 user",
-      "1 editable objection-overcoming message",
-      "Automated follow-up & surveys",
-      "Basic analytics",
-    ],
-    popular: false,
-    cta: "Start With Starter",
-  },
-  {
-    name: "Growth",
-    annualPrice: 629,
-    monthlyPrice: 74.99,
-    description: "Ideal for growing businesses",
-    features: [
-      "Up to 1,000 contacts",
-      "Unlimited users",
-      "Unlimited editable templates",
-      "Advanced analytics",
-      "Priority support",
-    ],
-    popular: true,
-    cta: "Scale With Growth",
-  },
-  {
-    name: "Pro",
-    annualPrice: 1259,
-    monthlyPrice: 149.99,
-    description: "For established businesses with high volume",
-    features: [
-      "Unlimited contacts/users",
-      "Full analytics dashboard",
-      "Dedicated account manager",
-      "Unlimited objection-overcoming templates with customization",
-    ],
-    popular: false,
-    cta: "Go Pro and Win Every No-Show",
-  },
-];
+import PricingPlans from "@/components/PricingPlans";
+import ExpiresIn from "@/components/ExpiresIn";
+import BillingToggle from "@/components/BillingToggle";
 
 const Checkout = () => {
-  const [selectedPlan, setSelectedPlan] = useState(1);
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">(
-    "annual"
-  );
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Countdown timer
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
-
-  const handleCheckout = async () => {
-    setIsLoading(true);
-    try {
-      if (!supabase) {
-        // Fallback for when Supabase is not configured
-        toast.success(
-          "Demo mode: Checkout would redirect to payment processor"
-        );
-        console.log("Checkout initiated:", {
-          planType: selectedPlan,
-          billingCycle,
-        });
-        return;
-      }
-
-      const { data, error } = await supabase.functions.invoke(
-        "create-checkout",
-        {
-          body: { planType: selectedPlan, billingCycle },
-        }
-      );
-
-      if (error) throw error;
-
-      if (data?.url) {
-        window.open(data.url, "_blank");
-      }
-    } catch (error) {
-      console.error("Checkout error:", error);
-      toast.error("Failed to start checkout. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const currentPlan = plans[selectedPlan as number] || plans[1];
-  // const currentPlan = plans[selectedPlan as keyof typeof plans];
-  const monthlyPrice =
-    billingCycle === "annual"
-      ? Math.round((currentPlan?.annualPrice / 12) * 0.4)
-      : Math.round(currentPlan?.monthlyPrice * 0.75); // 25% discount
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -144,12 +19,7 @@ const Checkout = () => {
               <Clock className="w-5 h-5" />
               <span className="font-bold">Limited Time: 25% OFF</span>
             </div>
-            <p>
-              Expires in{" "}
-              <span className="font-mono font-bold text-xl">
-                {formatTime(timeLeft)}
-              </span>
-            </p>
+            <ExpiresIn />
           </div>
 
           <div className="text-center mb-8">
@@ -158,125 +28,10 @@ const Checkout = () => {
             </h1>
 
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center mb-8 bg-white rounded-lg p-1 w-fit mx-auto">
-              <button
-                onClick={() => setBillingCycle("monthly")}
-                className={`px-6 py-2 rounded-md font-medium transition-colors ${
-                  billingCycle === "monthly"
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingCycle("annual")}
-                className={`px-6 py-2 rounded-md font-medium transition-colors relative ${
-                  billingCycle === "annual"
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                Annual
-                <Badge className="absolute -top-2 -right-2 bg-green-500 text-white text-xs">
-                  Save 40%
-                </Badge>
-              </button>
-            </div>
+            <BillingToggle />
           </div>
 
-          {/* Plans */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {Object.entries(plans).map(([key, plan]) => {
-              // console.log(key);
-              return (
-                <Card
-                  key={key}
-                  className={`relative cursor-pointer transition-all ${
-                    selectedPlan === Number(key)
-                      ? "ring-2 ring-blue-500 transform scale-105"
-                      : "hover:shadow-lg"
-                  } ${plan.popular ? "border-blue-500" : ""}`}
-                  onClick={() => setSelectedPlan(Number(key))}
-                >
-                  {plan.popular && (
-                    <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-blue-500">
-                      Most Popular
-                    </Badge>
-                  )}
-                  <CardHeader className="text-center pb-2">
-                    <CardTitle className="text-xl">{plan.name}</CardTitle>
-                    <div className="space-y-1">
-                      <div className="text-3xl font-bold text-green-600">
-                        $
-                        {billingCycle === "annual"
-                          ? Math.round(plan.annualPrice / 12)
-                          : Math.round(plan.monthlyPrice * 0.75)}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {billingCycle === "annual"
-                          ? "per month, billed annually"
-                          : "per month"}
-                      </div>
-                      {billingCycle === "monthly" && (
-                        <div className="text-sm text-red-600 font-medium">
-                          25% OFF - Limited Time!
-                        </div>
-                      )}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {plan.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Checkout Section */}
-          <Card className="max-w-md mx-auto">
-            <CardHeader>
-              <CardTitle className="text-center">Order Summary</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="font-medium">{currentPlan.name} Plan</span>
-                <Badge variant="outline">{billingCycle}</Badge>
-              </div>
-
-              <div className="flex justify-between items-center text-lg font-bold">
-                <span>Total:</span>
-                <span className="text-green-600">
-                  $
-                  {billingCycle === "annual"
-                    ? currentPlan.annualPrice
-                    : monthlyPrice}
-                  {billingCycle === "annual" ? "/year" : "/month"}
-                </span>
-              </div>
-
-              <Button
-                onClick={handleCheckout}
-                disabled={isLoading || timeLeft === 0}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 text-lg"
-              >
-                {isLoading ? "Processing..." : `Get ${currentPlan.name} Plan`}
-              </Button>
-
-              <div className="text-center text-sm text-gray-600 space-y-1">
-                <p>✓ 30-day money-back guarantee</p>
-                <p>✓ Cancel anytime</p>
-                <p>✓ Setup in under 5 minutes</p>
-              </div>
-            </CardContent>
-          </Card>
+          <PricingPlans />
         </div>
       </div>
 

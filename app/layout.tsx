@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { NicheProvider } from "@/store/AppContext";
+import { AppProvider } from "@/store/AppContext";
 import Script from "next/script";
 
 const InterSans = Inter({
@@ -58,7 +58,7 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <NicheProvider>{children}</NicheProvider>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );

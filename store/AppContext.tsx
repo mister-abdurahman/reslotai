@@ -1,33 +1,46 @@
 "use client";
 import React, { useState, useContext, ReactNode } from "react";
 
-type Niche = "default" | "health" | "beauty" | "fitness" | "technology"; // Add more niches as needed
-
-interface NicheContextProps {
-  currentNiche: Niche;
-  setNiche: (niche: Niche) => void;
+interface ContextProps {
+  timeLeft: number;
+  setTimeLeft: React.Dispatch<React.SetStateAction<number>>;
+  billingCycle: "monthly" | "annual";
+  setBillingCycle: React.Dispatch<React.SetStateAction<"monthly" | "annual">>;
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NicheContext = React.createContext<NicheContextProps | undefined>(
-  undefined
-);
+const AppContext = React.createContext<ContextProps | undefined>(undefined);
 
-const NicheProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [currentNiche, setNiche] = useState<Niche>("default");
+const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [timeLeft, setTimeLeft] = useState(300);
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">(
+    "annual"
+  );
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <NicheContext.Provider value={{ currentNiche, setNiche }}>
+    <AppContext.Provider
+      value={{
+        timeLeft,
+        setTimeLeft,
+        billingCycle,
+        setBillingCycle,
+        isMenuOpen,
+        setIsMenuOpen,
+      }}
+    >
       {children}
-    </NicheContext.Provider>
+    </AppContext.Provider>
   );
 };
 
-const useNiche = () => {
-  const context = useContext(NicheContext);
+const useAppContext = () => {
+  const context = useContext(AppContext);
   if (!context) {
-    throw new Error("useNiche must be used within a NicheProvider");
+    throw new Error("useAppContext must be used within an AppProvider");
   }
   return context;
 };
 
-export { NicheProvider, useNiche, NicheContext };
+export { AppProvider, useAppContext, AppContext };

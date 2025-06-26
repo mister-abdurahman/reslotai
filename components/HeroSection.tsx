@@ -1,58 +1,11 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-// import { useToast } from "@/hooks/use-toast";
-import { downloadFile, validateEmail } from "@/lib/helper";
+import DownloadPDFForm from "./DownloadPDFForm";
 
 // const PDF_DOWNLOAD_URL =
 //   "https://docs.google.com/document/d/1-XBj4eqzcoPTTpFU9MkA_x1QWqLfhMpFN0eDRoHIl38/edit?usp=sharing";
 
 const HeroSection = () => {
-  const [email, setEmail] = useState("");
-  // const { toast } = useToast();
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      if (email && validateEmail(email)) {
-        // const link = document.createElement("a");
-        // link.target = "_blank";
-        // link.href = PDF_DOWNLOAD_URL;
-        // link.download = "growaudience.pdf";
-        // document.body.appendChild(link);
-        // link.click();
-        // document.body.removeChild(link);
-        downloadFile("/retarget-leads.pdf", "Retarget Leads");
-        // toast({
-        //   title: "Success!",
-        //   description: "Your recovery strategy PDF will be sent to your email.",
-        // });
-        alert(
-          "Your PDF download has started. Please check your downloads folder."
-        );
-        setEmail("");
-      }
-    } catch (error: any) {
-      // toast({
-      //   title: "Error!",
-      //   description: error.message || "Something went wrong. Please try again.",
-      // });
-      alert(
-        error.message ||
-          "An error occurred while processing your request. Please try again."
-      );
-    }
-  };
-
-  const scrollToCalculator = () => {
-    const element = document.getElementById("calculator");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="hero"
@@ -102,7 +55,6 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={scrollToCalculator}
               className="border-white bg-white text-blue-800 hover:bg-white hover:text-blue-800 font-semibold px-8 py-4 text-lg transition-all transform hover:scale-105"
               aria-label="Calculate your potential revenue recovery"
             >
@@ -114,27 +66,7 @@ const HeroSection = () => {
             <h3 className="text-xl font-semibold text-white mb-2">
               Download a free recovery strategy PDF tailored to your industry
             </h3>
-            <form
-              onSubmit={handleEmailSubmit}
-              className="flex flex-col sm:flex-row gap-3 mt-4"
-            >
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                required
-                aria-label="Email address for PDF download"
-              />
-              <Button
-                type="submit"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 font-semibold px-6"
-                aria-label="Download strategy PDF"
-              >
-                Download Now
-              </Button>
-            </form>
+            <DownloadPDFForm />
           </div>
           {/* Trust Logos */}
           <div className="mt-16 animate-slide-up">

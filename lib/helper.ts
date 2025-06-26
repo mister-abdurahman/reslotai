@@ -30,3 +30,9 @@ export function downloadFile(fileUrl: string, fileName: string) {
     // For example, update a state variable in React to show an error message.
   }
 }
+
+export const formatTime = (seconds: number) => {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+};
