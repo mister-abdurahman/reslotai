@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/store/AppContext";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/sonner";
 
 const InterSans = Inter({
   variable: "--font-sans",
@@ -59,6 +60,7 @@ export default function RootLayout({
           }}
         />
         <AppProvider>{children}</AppProvider>
+        <Toaster position="top-center" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

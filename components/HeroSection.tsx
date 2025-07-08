@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import DownloadPDFForm from "./DownloadPDFForm";
+import DownloadPDFForm from "./EmailPDFForm";
 
 // const PDF_DOWNLOAD_URL =
 //   "https://docs.google.com/document/d/1-XBj4eqzcoPTTpFU9MkA_x1QWqLfhMpFN0eDRoHIl38/edit?usp=sharing";

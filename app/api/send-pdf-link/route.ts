@@ -1,51 +1,60 @@
 // app/api/send-pdf-link/route.ts
-
 import { NextResponse } from "next/server";
-import sgMail from "@sendgrid/mail"; // Import SendGrid library
+import { Resend } from "resend"; // Or your chosen email service SDK
 
-// Set your SendGrid API Key from environment variables
-// IMPORTANT: Store this securely, NOT directly in code!
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || ""); // Ensure fallback for TS
+// IMPORTANT: Store your API key securely in environment variables
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: Request) {
+// The public URL to your PDF document
+const PDF_URL =
+  "https://docs.google.com/document/d/1-XBj4eqzcoPTTpFU9MkA_x1QWqLfhMpFN0eDRoHIl38/edit?usp=sharing";
+const SENDER_EMAIL = "admin@send.reslotai.com"; // Your verified sender email
+
+export async function POST(req: Request) {
   try {
-    const { recipientEmail, pdfLink } = await request.json();
+    const { email } = await req.json();
 
-    if (!recipientEmail || !pdfLink) {
+    if (!email) {
+      return NextResponse.json({ error: "Email is required" }, { status: 400 });
+    }
+
+    // --- Optional: Save lead to your database/CRM here ---
+    // Example: await db.collection('leads').add({ email, timestamp: new Date() });
+    // This is where you'd integrate with your database or a CRM like Salesforce, Zoho CRM, etc.
+    // For simplicity, we're skipping database integration in this basic example.
+    // -----------------------------------------------------
+
+    // Send the email with the PDF link
+    const { data, error } = await resend.emails.send({
+      from: `ReslotAI <${SENDER_EMAIL}>`,
+      to: [email],
+      subject: "Your Free Exclusive Guide from ReslotAI!",
+      html: `
+        <h1>Thank you for your interest!</h1>
+        <p>Here is your exclusive guide:</p>
+        <p><a href="${PDF_URL}">Download Your Free Guide Here</a></p>
+        <p>If you have any questions, feel free to reply to this email.</p>
+        <p>Kind regards,</p>
+        <p>The Your Company Team</p>
+      `,
+    });
+
+    if (error) {
+      console.error("Failed to send email:", error);
       return NextResponse.json(
-        { message: "Email and PDF link are required." },
-        { status: 400 }
+        { error: "Failed to send email" },
+        { status: 500 }
       );
     }
 
-    const msg = {
-      to: recipientEmail, // User's email
-      from: "your_verified_sender_email@yourdomain.com", // Your SendGrid verified sender email
-      subject: "Your Requested Brochure from [Your Client's Business Name]",
-      html: `
-        <p>Hello,</p>
-        <p>Thank you for your interest in our services! Here is the link to download our brochure:</p>
-        <p><a href="${pdfLink}">Download Your Brochure Here</a></p>
-        <p>We look forward to helping your business re-engage lost leads.</p>
-        <p>Best regards,<br/>The Team at [Your Client's Business Name]</p>
-      `,
-    };
-
-    await sgMail.send(msg);
     return NextResponse.json(
-      { message: "PDF link sent successfully!" },
+      { message: "Email sent successfully!", data },
       { status: 200 }
     );
-  } catch (error: any) {
-    console.error(
-      "SendGrid email sending error:",
-      error.response ? error.response.body : error
-    );
+  } catch (error) {
+    console.error("API Error:", error);
     return NextResponse.json(
-      {
-        message:
-          error.message || "Failed to send email. Please try again later.",
-      },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }

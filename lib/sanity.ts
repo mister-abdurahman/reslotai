@@ -7,6 +7,7 @@ export const config = {
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   apiVersion: "2023-03-04", // Use a UTC date string
   useCdn: process.env.NODE_ENV === "production",
+  token: process.env.NEXT_PUBLIC_SANITY_API_WRITE_TOKEN,
   // IMPORTANT: For App Router, ensure these are configured if you want caching control
   // These options control how Next.js fetches and caches data from Sanity.
   // For `fetch`, it's passed as a third argument, but for `createClient` here,

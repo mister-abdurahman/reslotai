@@ -13,7 +13,7 @@ export const revalidate = 60; // Regenerate page data every 60 seconds
 interface Post {
   _id: string;
   title: string;
-  slug: { current: string };
+  slug: { current?: string };
   excerpt: string;
   mainImage: { asset: { _ref: string }; alt?: string };
   publishedAt: string;
@@ -60,7 +60,7 @@ export default async function BlogPage() {
         {posts.length > 0 ? (
           posts.map((post) => (
             <Link
-              href={`/blogs/${post.slug.current}`}
+              href={`/blogs/${post?.slug?.current}`}
               key={post._id}
               className="block group bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden dark:bg-gray-800"
             >

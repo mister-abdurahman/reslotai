@@ -1,29 +1,19 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
 import { Check, Star } from "lucide-react";
 import Link from "next/link";
+import WaitlistForm from "./WaitlistForm";
 // import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
-  // const [email, setEmail] = useState("");
-  // const { toast } = useToast();
-
-  // const handleEmailSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (email) {
-  //     toast({
-  //       title: "Success!",
-  //       description: "We'll be in touch soon to start your revenue recovery.",
-  //     });
-  //     setEmail("");
-  //   }
-  // };
-
   return (
     <>
       {/* Final CTA Section */}
-      <section className="py-10 sm:py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden">
+      <section
+        id="call-to-action"
+        className="py-10 sm:py-20 bg-gradient-to-br from-blue-900 to-purple-500 text-white relative overflow-hidden"
+      >
         {/* <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-500 bg-test text-white relative overflow-hidden"> */}
         {/* Background decorative elements */}
         <div className="absolute inset-0">
@@ -74,7 +64,7 @@ const Footer = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
+            {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold mb-4 font-inter">
                 Start Increasing Profit Today
               </h3>
@@ -100,17 +90,17 @@ const Footer = () => {
                   <a href="/pricing">Schedule Demo</a>
                 </Button>
               </div>
-            </div>
+            </div> */}
             {/* Original CTA Section */}
-            {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold mb-4 font-inter">
-                Start Your Free Trial Today
+                Join the winning team today
               </h3>
               <p className="text-gray-200 mb-6">
                 No setup fees. No long-term contracts. Cancel anytime.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              {/* <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                 <Button
                   size="lg"
                   className="bg-white text-blue-900 hover:bg-gray-100 font-semibold px-8 py-4 text-lg transition-all transform hover:scale-105"
@@ -126,30 +116,10 @@ const Footer = () => {
                 >
                   Schedule Demo
                 </Button>
-              </div>
+              </div> */}
 
-              <form
-                onSubmit={handleEmailSubmit}
-                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              >
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                  required
-                  aria-label="Email address"
-                />
-                <Button
-                  type="submit"
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:opacity-90 font-semibold px-6"
-                  aria-label="Get started"
-                >
-                  Get Started.
-                </Button>
-              </form>
-            </div> */}
+              <WaitlistForm />
+            </div>
 
             {/* Trust badges and social proof */}
             <div className="space-y-8">
