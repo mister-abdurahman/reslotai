@@ -35,7 +35,7 @@ export async function POST(req: Request) {
         <p><a href="${PDF_URL}">Download Your Free Guide Here</a></p>
         <p>If you have any questions, feel free to reply to this email.</p>
         <p>Kind regards,</p>
-        <p>The Your Company Team</p>
+        <p>The ReslotAI Team</p>
       `,
     });
 
